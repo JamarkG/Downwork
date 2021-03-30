@@ -56,7 +56,8 @@ if (!sessionUser){
       {/* Create New Class button
       View Class Feed button
       Upcoming Classes Div (each clickable?)
-      Completed Classes Div (each clickable?) */}
+      Completed Classes Div (each clickable?)
+      --- All are components, also create master component where div is on 55 to hold/render them all and move them to that file*/}
     </div>
   </>
 }
