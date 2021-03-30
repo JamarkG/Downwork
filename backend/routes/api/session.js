@@ -6,6 +6,15 @@ const { User } = require('../../db/models');
 
 const router = express.Router();
 
+router.get('/', restoreUser, (req, res) => {
+  const { user } = req;
+  if (user) {
+    return res.json({
+      user: user.toSafeObject(),
+    });
+  } else return res.json({});
+});
+
 // Log in
 router.post(
     '/',
@@ -28,7 +37,7 @@ router.post(
         user,
       });
     }),
-  );
+);
 
   // Log out
 router.delete(
@@ -37,6 +46,8 @@ router.delete(
       res.clearCookie('token');
       return res.json({ message: 'success' });
     }
-  );
+);
+
+
 
 module.exports = router;

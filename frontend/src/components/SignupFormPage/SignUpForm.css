@@ -1,3 +1,11 @@
 body {
-    background-color: lightblue;
+  background-color: lightblue;
+  position: relative;
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
   }
