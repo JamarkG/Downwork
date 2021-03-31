@@ -1,0 +1,31 @@
+
+.TrustedByDiv {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    color: #C0C0C0;
+}
+
+.TrustedByLogos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 500px;
+}
+
+#TrustLogo1 {
+    width: 100px;
+}
+
+#TrustLogo2 {
+    width: 100px;
+}
+
+#TrustLogo3 {
+    height: 45px;
+    width: 100px;
+}
+
+#TrustLogo4 {
+    width: 100px;
+}

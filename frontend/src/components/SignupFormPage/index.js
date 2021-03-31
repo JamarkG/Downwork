@@ -7,7 +7,8 @@ import './SignUpForm.css';
 function SignupFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  const [email, setEmail] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
+  const [biography, setBiography] = useState("");
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -19,7 +20,7 @@ function SignupFormPage() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, fullName, password }))
+      return dispatch(sessionActions.signup({ emailAddress, fullName, password, biography }))
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
@@ -37,8 +38,8 @@ function SignupFormPage() {
         Email
         <input
           type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={emailAddress}
+          onChange={(e) => setEmailAddress(e.target.value)}
           required
         />
       </label>
@@ -68,6 +69,14 @@ function SignupFormPage() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
+      </label>
+      <label>
+        Biography
+        <textarea value={biography}
+            onChange={(e) => setBiography(e.target.value)}
+            required
+            placeholder={'Write your biography here.'}>
+        </textarea>
       </label>
       <button type="submit">Sign Up</button>
     </form>

@@ -1,0 +1,29 @@
+
+.FindButton {
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#FindButton1 {
+  background-color: #38ac3c; /* Green */
+  border: none;
+  border-radius: 38px;
+  color: white;
+
+}
+
+#FindButton2 {
+    background-color: white; /* Green */
+    border: 1px solid #38ac3c;
+    border-radius: 38px;
+    color: #38ac3c;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 15px;
+}

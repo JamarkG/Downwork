@@ -1,0 +1,27 @@
+
+#ProfileArea {
+    position: relative;
+}
+
+.profile-dropdown {
+    height: 80px;
+    width: 250px;
+    position: absolute;
+    right: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 3px rgb(196, 196, 196);
+    color: black;
+}
+
+#ProfileButton {
+    background-color: white; /* Green */
+    border: 1px solid #38ac3c;
+    border-radius: 38px;
+    color: #38ac3c;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }

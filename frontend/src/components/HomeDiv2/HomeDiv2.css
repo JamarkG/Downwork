@@ -1,0 +1,28 @@
+.HomeDiv2 {
+    background-image: url(https://www.upwork.com/static/assets/Brontes/6ea7164/img/find-talent-mobile.350b96e.jpg);
+    background-size: cover;
+    height: 400px;
+    width: 650px;
+/*
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: flex-end; */
+}
+
+#HomeDiv2Text {
+    font-size: 48px;
+    width: 240px;
+}
+
+#HomeDivSmallText {
+    font-size: 20px;
+    width: 290px;
+}
+
+
+
+
+/* #FindButton {
+    position: relative;
+} */

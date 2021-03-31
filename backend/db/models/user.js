@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         len: [60, 60]
       },
     },
-    biography: {
+    Biography: {
       type: DataTypes.TEXT,
       allowNull: false,
     },

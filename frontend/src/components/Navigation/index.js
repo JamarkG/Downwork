@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import Logo from "../Images/downwork.png";
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
@@ -10,7 +11,7 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <ProfileButton id='ProfileButton' user={sessionUser} />
     );
   } else {
     sessionLinks = (
@@ -22,12 +23,17 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
+    <div className='NavBar'>
+      <div>
+          <NavLink exact to="/">
+            <img className='DownworkLogo' src={Logo} alt="Downwork logo green"/>
+          </NavLink>
+      </div>
+      <div className="NavBarSpacing"></div>
+      <div>
         {isLoaded && sessionLinks}
-      </li>
-    </ul>
+      </div>
+    </div>
   );
 }
 

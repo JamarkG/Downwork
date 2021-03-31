@@ -1,0 +1,15 @@
+
+
+#MainTitle {
+    font-size: 70px;
+    color: #14a800;
+    margin: 0 0 30px;
+}
+
+#SecondaryTitle {
+    color: #65735b;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: -.002em;
+    font-weight: 500;
+}
