@@ -8,10 +8,11 @@ import Navigation from "./components/Navigation";
 import Introduction from "./components/Introduction";
 import Services from "./components/Services";
 import Body from "./components/Body";
-import Images from "./components/Images";
+// import Images from "./components/Images";
 import ClassList from "./components/ClassList";
 import Footer from "./components/Footer";
-import HomeDiv2 from "./components/HomeDiv2";
+// import HomeDiv2 from "./components/HomeDiv2";
+import CreateClassForm from './components/CreateClassForm'
 import { useSelector } from 'react-redux';
 
 function App() {
@@ -29,18 +30,17 @@ if (sessionUser){
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path='/classes'>
+          <Route exact path='/'>
+            <Body />
+          </Route>
+          <Route exact path='/classes'>
             <ClassList />
+          </Route>
+          <Route path='/classes/createclass'>
+            <CreateClassForm />
           </Route>
         </Switch>
       )}
-      <div>
-        <div className='TopHomeDiv'>
-          <Body />
-          <Images />
-        </div>
-        <HomeDiv2 />
-      </div>
       <Footer />
     </>
   );
@@ -48,6 +48,7 @@ if (sessionUser){
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+      <h1>hello</h1>
       {isLoaded && (
         <Switch>
           <Route path="/login">

@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import SearchBar from '../SearchBar';
 import Logo from "../Images/downwork.png";
 import './Navigation.css';
 
@@ -29,7 +30,7 @@ function Navigation({ isLoaded }){
             <img className='DownworkLogo' src={Logo} alt="Downwork logo green"/>
           </NavLink>
       </div>
-      <div className="NavBarSpacing"></div>
+      <SearchBar />
       <div>
         {isLoaded && sessionLinks}
       </div>

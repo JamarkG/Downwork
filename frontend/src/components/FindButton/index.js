@@ -1,20 +1,26 @@
 import { Link } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import './FindButton.css'
 
 function FindButton(){
+    const history = useHistory();
+
+    const handleClick = (e) => {
+        if (e.target.name === 'createclass'){
+            history.push('/classes/createclass')
+        } else {
+            history.push('/classes')
+        }
+    }
 
     return (
         <div>
-            <Link to="/session/classes">
-                <button className='FindButton' id='FindButton1'>
-                    View Classes
-                </button>
-            </Link>
-            <Link to="/session/createclass">
-                <button className='FindButton' id='FindButton2'>
-                    Post a Class
-                </button>
-            </Link>
+            <button onClick={handleClick} name='viewclasses' className='FindButton' id='FindButton1'>
+                View Classes
+            </button>
+            <button onClick={handleClick} name='createclass' className='FindButton' id='FindButton2'>
+                Post a Class
+            </button>
         </div>
     )
 }

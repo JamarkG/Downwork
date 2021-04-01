@@ -13,3 +13,8 @@
     letter-spacing: -.002em;
     font-weight: 500;
 }
+
+.TopHomeDiv {
+    display: flex;
+    flex-direction: row;
+}
