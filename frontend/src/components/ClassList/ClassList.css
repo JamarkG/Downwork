@@ -1,0 +1,50 @@
+
+.ClassListContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+
+.ClassContainer {
+    border-bottom: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    color: black;
+}
+
+/* .TitleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
+
+.Title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    margin: 3px 0px 3px 0px;
+}
+
+.Label {
+    color: rgb(0, 189, 0);
+    font-weight: 800;
+    margin: 11px 0px 8px 0px;
+}
+
+.SecondLabel {
+    color: rgb(3, 3, 3);
+    font-weight: 600;
+    width: 80px;
+    height: 10px;
+    margin: 0px 0px 8px 0px;
+}
+
+.Info {
+    width: 580px;
+    margin: 0px 0px 8px 0px;
+    font-size: 14px;
+}

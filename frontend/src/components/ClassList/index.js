@@ -1,7 +1,7 @@
 import { getClasses } from '../../store/classes';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from "react";
-
+import './ClassList.css'
 
 
 function ClassList(){
@@ -9,24 +9,24 @@ function ClassList(){
     useEffect(() => {
     dispatch(getClasses())
     }, [dispatch])
-    // const allClasses = (function () {
-    //     return dispatch(getClasses())
-    //   })();
-    // console.log(allClasses);
+
     const allClasses = useSelector(state => Object.values(state.classes))
 
     return (
-        <div>
-            {allClasses?.map((oneClass, index) => (
-            <div key={index}>
-                <p>{oneClass.title}</p>
-                <p>{oneClass.body}</p>
-                <p>{oneClass.requiredTime}</p>
-                <p>{oneClass.price}</p>
-                <p>{oneClass.availableTimes}</p>
+        <>
+            <div className='TitleContainer'>
+                <h1 className='Title'>Classes</h1>
             </div>
-            ))}
-        </div>
+            <div className='ClassListContainer'>
+                {allClasses?.map((oneClass, index) => (
+                <div className='ClassContainer' key={index}>
+                    <p className='Label'>{oneClass.title}</p>
+                    <p className='Info'>${oneClass.price} - {oneClass.requiredTime} minutes - {oneClass.availableTimes}</p>
+                    <p className='Info'>{oneClass.body}</p>
+                </div>
+                ))}
+            </div>
+        </>
     )
 }
 
