@@ -42,6 +42,7 @@ function ClassList(){
     // function handleChange(){}
 
     const allClasses = useSelector(state => Object.values(state.classes))
+    console.log(allClasses[0]);
 
     return (
         <>
@@ -49,7 +50,7 @@ function ClassList(){
                 <h1 className='Title'>Classes</h1>
             </div>
             <div className='ClassListContainer'>
-                {allClasses?.map((oneClass, index) => (
+                {allClasses[0]?.map((oneClass, index) => (
                 <div className='ClassContainer' id={oneClass.id} key={index}>
                     <p className='Label'>{oneClass.title}</p>
                     <p className='Info'>${oneClass.price} - {oneClass.requiredTime} minutes - {oneClass.availableTimes}</p>
