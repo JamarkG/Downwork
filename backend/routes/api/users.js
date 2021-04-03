@@ -2,7 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-const { setTokenCookie, requireAuth } = require('../../utils/auth');
+const { setTokenCookie, requireAuth, restoreUser } = require('../../utils/auth');
 const { User } = require('../../db/models');
 const validateSignup = [
     check('emailAddress')
@@ -28,18 +28,18 @@ const router = express.Router();
 
 // Sign up
 router.post(
-    '',
-    validateSignup,
-    asyncHandler(async (req, res) => {
-      const { emailAddress, password, fullName, Biography } = req.body;
-      const user = await User.signup({ emailAddress, fullName, password, Biography });
+  '',
+  validateSignup,
+  asyncHandler(async (req, res) => {
+    const { emailAddress, password, fullName, Biography } = req.body;
+    const user = await User.signup({ emailAddress, fullName, password, Biography });
 
-      await setTokenCookie(res, user);
+    await setTokenCookie(res, user);
 
-      return res.json({
-        user,
-      });
-    }),
+    return res.json({
+      user,
+    });
+  }),
 );
 
 module.exports = router;

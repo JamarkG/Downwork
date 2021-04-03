@@ -1,0 +1,14 @@
+
+
+.UserProfileDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.UserProfile {
+    color: black;
+}
+
+.ProfileInfo {
+    color: black;
+}

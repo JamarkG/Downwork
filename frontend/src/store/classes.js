@@ -1,24 +1,57 @@
-// import { LOAD_ITEMS, REMOVE_ITEM, ADD_ITEM } from './items';
 import { csrfFetch } from './csrf';
 
 const LOAD = 'class/LOAD';
-// const LOAD_TYPES = 'pokemon/LOAD_TYPES';
 const ADD_ONE = 'class/ADD_ONE';
+const BOUGHT_CLASS = 'class/BOUGHT_CLASS';
 
 const load = list => ({
   type: LOAD,
   list,
 });
 
-// const loadTypes = types => ({
-//   type: LOAD_TYPES,
-//   types,
-// });
-
 const addOneClass = oneClass => ({
   type: ADD_ONE,
   oneClass,
 });
+
+const addBoughtClass = classId => ({
+  type: BOUGHT_CLASS,
+  classId,
+});
+
+export const getBoughtClasses = () => async dispatch => {
+  const response = await csrfFetch(`/api/classes/bought`);
+  console.log(response)
+
+  if (response.ok) {
+    const UsersBoughtClasses = await response.json();
+    console.log('this is BCL on 34:', UsersBoughtClasses)
+    dispatch(load(UsersBoughtClasses));
+    return UsersBoughtClasses;
+  }
+};
+
+export const createBoughtClass = ({oneClass}) => async () => {
+  console.log('oneClass on 41 is:', oneClass)
+  const expertId = oneClass.userId;
+  const classId = oneClass.id
+  const userId = 1;
+  // FIX THIS ^^^
+
+  const response = await csrfFetch(`/api/classes/bought`, {
+    method: 'POST',
+    headers: {"Content-Type": 'application/json'},
+    body: JSON.stringify({ expertId, classId, userId })
+  });
+
+  if (response.ok) {
+    // expect classId
+    const createdClass = await response.json();
+    // dispatch(addBoughtClass(classId));
+
+    return createdClass;
+  }
+}
 
 export const getClasses = () => async dispatch => {
   const response = await csrfFetch(`/api/classes`);
@@ -26,7 +59,7 @@ export const getClasses = () => async dispatch => {
 
   if (response.ok) {
     const {classList} = await response.json();
-    console.log(classList)
+    // console.log(classList)
     dispatch(load(classList));
     return classList;
   }
@@ -93,15 +126,15 @@ const sortList = (list) => {
 const classesReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD: {
-        // console.log(action)
-      const allClasses = {};
-      action.list.forEach(oneClass => {
-        allClasses[oneClass.id] = oneClass;
-      });
+        console.log('action list on 129!!', action.list)
+      // const allClasses = {};
+      // action.list.forEach(oneClass => {
+      //   allClasses[oneClass.id] = oneClass;
+      // });
       return {
-        ...allClasses,
+        // ...allClasses,
         ...state,
-        list: sortList(action.list),
+        list: action.list,
       };
     }
     // case LOAD_TYPES: {
@@ -110,6 +143,12 @@ const classesReducer = (state = initialState, action) => {
     //     types: action.types,
     //   };
     // }
+    case BOUGHT_CLASS:{
+      console.log('action list on 147!!', action.list)
+      return {
+      ...state,
+      list: sortList(action.list),
+    }}
     case ADD_ONE: {
       if (!state[action.oneClass.id]) {
         const newState = {

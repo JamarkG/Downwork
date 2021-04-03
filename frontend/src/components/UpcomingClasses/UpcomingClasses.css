@@ -1,0 +1,25 @@
+
+.UpcomingClassesDiv {
+    color: black;
+    border-top: .5px solid rgb(224, 224, 224);
+    border-bottom: .5px solid rgb(224, 224, 224);
+
+    width: fit-content;
+}
+
+.UpcomingClass {
+
+}
+
+.h3Div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.MyUpClasses {
+    background-color: rgb(231, 231, 231);
+    width: fit-content;
+    margin: 0px 0px 0px 0px;
+}

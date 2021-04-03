@@ -8,6 +8,8 @@ import Navigation from "./components/Navigation";
 import Introduction from "./components/Introduction";
 import Services from "./components/Services";
 import Body from "./components/Body";
+import FindButton from "./components/FindButton";
+import UserProfile from "./components/UserProfile";
 // import Images from "./components/Images";
 import ClassList from "./components/ClassList";
 import Footer from "./components/Footer";
@@ -31,7 +33,8 @@ if (sessionUser){
       {isLoaded && (
         <Switch>
           <Route exact path='/'>
-            <Body />
+            <UserProfile />
+            <FindButton />
           </Route>
           <Route exact path='/classes'>
             <ClassList />
@@ -48,9 +51,12 @@ if (sessionUser){
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      <h1>hello</h1>
+      <h1>Please Sign-up or Login</h1>
       {isLoaded && (
         <Switch>
+          <Route exact path='/'>
+            <Body />
+          </Route>
           <Route path="/login">
             <LoginFormPage />
           </Route>
@@ -62,6 +68,7 @@ if (sessionUser){
       <div>
         <Introduction />
         <Services />
+        <Footer />
       </div>
     </>
   )
