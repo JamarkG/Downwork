@@ -25,14 +25,14 @@ export const getBoughtClasses = () => async dispatch => {
 
   if (response.ok) {
     const UsersBoughtClasses = await response.json();
-    console.log('this is BCL on 34:', UsersBoughtClasses)
+    console.log('this is BCL on 28:', UsersBoughtClasses)
     dispatch(load(UsersBoughtClasses));
     return UsersBoughtClasses;
   }
 };
 
 export const createBoughtClass = ({oneClass}) => async () => {
-  console.log('oneClass on 41 is:', oneClass)
+  // console.log('oneClass on 41 is:', oneClass)
   const expertId = oneClass.userId;
   const classId = oneClass.id
   const userId = 1;
@@ -46,16 +46,32 @@ export const createBoughtClass = ({oneClass}) => async () => {
 
   if (response.ok) {
     // expect classId
-    const createdClass = await response.json();
+    const CreatedBoughtClass = await response.json();
     // dispatch(addBoughtClass(classId));
 
-    return createdClass;
+    return CreatedBoughtClass;
   }
 }
 
 export const getClasses = () => async dispatch => {
   const response = await csrfFetch(`/api/classes`);
 //   console.log(response)
+
+  if (response.ok) {
+    const {classList} = await response.json();
+    // console.log(classList)
+    dispatch(load(classList));
+    return classList;
+  }
+};
+
+export const getSearchedClasses = ({searchQuery}) => async dispatch => {
+  console.log('THIS IS THE SEARCH QUERY', searchQuery)
+  searchedString = searchQuery.searchQ;
+
+
+  const response = await csrfFetch(`/api/classes/${searchedString}`);
+  console.log('THIS IS THE RESPONSE FROM THE SEARCH QUERY', response)
 
   if (response.ok) {
     const {classList} = await response.json();
@@ -88,6 +104,36 @@ export const createOneClass = (oneClass) => async dispatch => {
     return createdClass;
   }
 }
+
+// export const getReviews = (classId) => async dispatch => {
+//   console.log(classId)
+//   const response = await csrfFetch(`/api/reviews/${classId}`);
+
+//   if (response.ok) {
+//     const {reviewList} = await response.json();
+//     console.log('RESPONSE ON 98 OF STORE=-=-', reviewList)
+//     // console.log(classList)
+//     dispatch(load(reviewList));
+//     return reviewList;
+//   }
+// };
+
+// export const createOneReview = (reviewFull) => async dispatch => {
+
+//   const response = await csrfFetch('/api/reviews', {
+//     method: 'POST',
+//     headers: {"Content-Type": 'application/json'},
+//     body: JSON.stringify(reviewFull)
+//   });
+//   console.log('THIS IS THE RESPONSE ON 112 OF STORE CREATE1REVIEW', response)
+
+//   if (response.ok) {
+//     const createdClass = await response.json();
+//     console.log(`CREATED REVIEW HERE:,`, createdClass);
+//     // dispatch(addOneClass(createdClass));
+//     return createdClass;
+//   }
+// }
 
 // export const editOnePokemon = (id, pokemon) => async dispatch => {
 //   const response = await fetch(`/api/pokemon/${id}`, {
@@ -126,7 +172,7 @@ const sortList = (list) => {
 const classesReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD: {
-        console.log('action list on 129!!', action.list)
+        console.log('action list on 157!!', action.list)
       // const allClasses = {};
       // action.list.forEach(oneClass => {
       //   allClasses[oneClass.id] = oneClass;
@@ -147,7 +193,7 @@ const classesReducer = (state = initialState, action) => {
       console.log('action list on 147!!', action.list)
       return {
       ...state,
-      list: sortList(action.list),
+      list: action.list,
     }}
     case ADD_ONE: {
       if (!state[action.oneClass.id]) {
@@ -157,7 +203,7 @@ const classesReducer = (state = initialState, action) => {
         };
         const classList = newState.list.map(id => newState[id]);
         classList.push(action.oneClass);
-        newState.list = sortList(classList);
+        newState.list = classList;
         return newState;
       }
       return {

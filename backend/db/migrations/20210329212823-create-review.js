@@ -9,10 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       reviewerId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model: 'Users'}
       },
       reviewedId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model: 'Users'}
       },
       title: {
         type: Sequelize.STRING(75)
@@ -21,7 +23,8 @@ module.exports = {
         type: Sequelize.TEXT
       },
       classId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model: 'Classes'}
       },
       createdAt: {
         allowNull: false,

@@ -1,23 +1,37 @@
 .HomeDiv2 {
     background-image: url(https://www.upwork.com/static/assets/Brontes/6ea7164/img/find-talent-mobile.350b96e.jpg);
     background-size: cover;
-    height: 400px;
-    width: 650px;
-/*
+    min-height: 200px;
+    max-height: 650px;
+    min-width: 750px;
+    max-width: 1150px;
+    margin-left: 50px;
+    margin-right: 50px;
     display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: flex-end; */
+    flex-direction: column;
+    /* position: absolute; */
+    /* justify-content: center; */
+    /* align-items: flex-start; */
 }
 
 #HomeDiv2Text {
-    font-size: 48px;
-    width: 240px;
+    font-size: 72px;
+    width: 440px;
+    margin: 100px 0px 0px 50px;
 }
 
 #HomeDivSmallText {
     font-size: 20px;
     width: 290px;
+}
+
+.ForClasses {
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.HoldsGuyPhotoDiv {
+    display: flex;
 }
 
 

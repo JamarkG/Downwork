@@ -33,7 +33,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Class.associate = function(models) {
     // associations can be defined here
-    Class.belongsTo(models.User, { foreignKey: "userId" });
+    Class.belongsTo(models.User, { foreignKey: "userId", sourceKey: 'id' });
+    Class.hasMany(models.BoughtClass, { foreignKey: 'classId', targetKey: 'id'})
   };
   return Class;
 };

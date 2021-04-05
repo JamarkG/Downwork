@@ -14,13 +14,18 @@ function FindButton(){
     }
 
     return (
-        <div>
-            <button onClick={handleClick} name='viewclasses' className='FindButton' id='FindButton1'>
-                View Classes
-            </button>
-            <button onClick={handleClick} name='createclass' className='FindButton' id='FindButton2'>
-                Post a Class
-            </button>
+        <div className={'FindButtonTopDiv'}>
+            <div className={'FindButtonMediumDiv'}>
+                <p className={'FindButtonTitleText'}>View All Classes or Create a New Class</p>
+            </div>
+            <div className={'FindButtonSmallDiv'}>
+                <button onClick={handleClick} name='viewclasses' className='FindButton' id='FindButton1'>
+                    View Classes
+                </button>
+                <button onClick={handleClick} name='createclass' className='FindButton' id='FindButton2'>
+                    Post a Class
+                </button>
+            </div>
         </div>
     )
 }

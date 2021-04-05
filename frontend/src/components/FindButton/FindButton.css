@@ -27,3 +27,24 @@
     font-size: 16px;
     margin-left: 15px;
 }
+
+.FindButtonTitleText {
+  color: black;
+  font-weight: 600;
+  font-size: 18.7px;
+}
+
+.FindButtonTopDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.FindButtonMediumDiv {
+
+}
+
+.FindButtonSmallDiv {
+  margin-bottom: 15px;
+}

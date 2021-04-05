@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('boughtClasses', [
+    return queryInterface.bulkInsert('BoughtClasses', [
       {
         userId: 3,
         classId: 1,
@@ -19,6 +19,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('boughtClasses', {});
+    return queryInterface.bulkDelete('BoughtClasses', {});
   }
 };

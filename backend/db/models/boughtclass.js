@@ -1,20 +1,23 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const boughtClass = sequelize.define('boughtClass', {
+  const BoughtClass = sequelize.define('BoughtClass', {
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {models: 'Users'}
     },
     classId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {models: 'Classes'}
     },
   }, {});
-  boughtClass.associate = function(models) {
+  BoughtClass.associate = function(models) {
     // associations can be defined here
-    boughtClass.belongsTo(models.User, { foreignKey: "userId" });
-    boughtClass.belongsTo(models.Class, { foreignKey: "classId" });
-  };
-  return boughtClass;
-};
+    BoughtClass.belongsTo(models.User, { foreignKey: "userId", sourceKey: 'id' });
+    BoughtClass.belongsTo(models.Class, { foreignKey: "classId", sourceKey: 'id' });
+    BoughtClass.hasMany(models.Review, { foreignKey: "classId", sourceKey: 'classId' });
 
+  };
+  return BoughtClass;
+};

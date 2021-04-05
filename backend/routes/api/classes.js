@@ -1,8 +1,10 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const router = express.Router();
+const sequelize = require("sequelize");
+const Op = sequelize.Op;
 const { requireAuth } = require('../../utils/auth');
-const { Class, boughtClass } = require('../../db/models');
+const { Class, BoughtClass, Review } = require('../../db/models');
 // const user = require('../../db/models/user');
 // const { db } = require('../../config');
 
@@ -14,44 +16,75 @@ router.get('/', requireAuth, asyncHandler( async (req, res, next) => {
 
 router.get('/bought', requireAuth, asyncHandler( async (req, res, next) => {
     const userId = req.user.dataValues.id
-    // console.log('shit!:', req.user.dataValues.id);
-    const BoughtClassList = await boughtClass.findAll({where: {
-        userId: userId
-    }, include: [
-        {model: Class,
-            where: {
+    console.log('shit!:', userId);
+    console.log('CLASSES API LINE 18')
+
+
+    const BoughtClassList = await BoughtClass.findAll({
+        where: {
             userId: userId
-        },
-        },
-    ]})
-    console.log(BoughtClassList[0].Class)
+    },
+    })
+    console.log('CONSOLE LOG ON 33 IN CLASSES STORE..', BoughtClassList)
 
-    const UsersBoughtClasses = BoughtClassList.map((boughtClass) => {
+    const classIdArray = BoughtClassList.map((oneBoughtClass)=> {
+        return oneBoughtClass.classId
+    })
 
+    // console.log(classIdArray)
+
+    const ClassList = await Class.findAll({
+        where: {
+            id: classIdArray
+        }
+    })
+
+    const UsersBoughtClasses = ClassList.map((boughtClass) => {
+        console.log('THIS IS ON 58==', boughtClass)
         return {
-          expertId: boughtClass.Class.userId,
-        //   userId: boughtClass.userId,
-          title: boughtClass.Class.title,
-          body: boughtClass.Class.body,
-          requiredTime: boughtClass.Class.requiredTime,
-          price: boughtClass.Class.price,
-          availableTimes: boughtClass.Class.availableTimes,
-          videoLink: boughtClass.Class.videoLink
+          expertId: boughtClass.userId,
+          classId: boughtClass.id,
+          title: boughtClass.title,
+          body: boughtClass.body,
+          requiredTime: boughtClass.requiredTime,
+          price: boughtClass.price,
+          availableTimes: boughtClass.availableTimes,
+          videoLink: boughtClass.videoLink
         };
     });
-
-    // console.log(req.body)
     return res.json(UsersBoughtClasses)
 }));
+
+router.get('/searchQuery', requireAuth, asyncHandler( async (req, res, next) => {
+    console.log(req.query)
+    const classList = await Class.findAll({
+        where: { [Op.or]: {
+            title:
+            {[Op.or]: {
+                [Op.iLike]: `%${searchTerm}%`,
+                [Op.substring]: searchTerm,
+            }},
+            description : {
+                [Op.or]: {
+                    [Op.iLike]: `%${searchTerm}%`,
+                    [Op.substring]: searchTerm,
+                }
+            }
+        }}
+    })
+    return res.json({classList})
+}))
+
+
 
 router.post('/bought', requireAuth, asyncHandler( async (req, res, next) => {
     const { expertId, classId, userId } = req.body;
     // const { expertId, classId } = req.body;
     console.log('THIS IS EXPERTID CLASS IF USERID', expertId, classId, userId)
 
-    const BoughtClassList = await boughtClass.create({ userId, expertId, classId })
+    const CreatedBoughtClass = await BoughtClass.create({ userId, expertId, classId })
 
-    return res.json({BoughtClassList})
+    return res.json({CreatedBoughtClass})
 }));
 
 router.post('/', requireAuth, asyncHandler( async (req, res, next) => {

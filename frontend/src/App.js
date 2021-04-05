@@ -10,12 +10,14 @@ import Services from "./components/Services";
 import Body from "./components/Body";
 import FindButton from "./components/FindButton";
 import UserProfile from "./components/UserProfile";
+// import SpacerDiv from "./components/SpacerDiv";
 // import Images from "./components/Images";
 import ClassList from "./components/ClassList";
 import Footer from "./components/Footer";
 // import HomeDiv2 from "./components/HomeDiv2";
 import CreateClassForm from './components/CreateClassForm'
 import { useSelector } from 'react-redux';
+import './App.css'
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +34,9 @@ if (sessionUser){
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path='/classes/:searchQ'>
+            <ClassList props={searchQ} />
+          </Route>
           <Route exact path='/'>
             <UserProfile />
             <FindButton />
@@ -51,7 +56,9 @@ if (sessionUser){
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      <h1>Please Sign-up or Login</h1>
+      <div className={'PleaseLoginDiv'}>
+        <h1 className={'PleaseLogin'}>Please Sign-up or Login</h1>
+      </div>
       {isLoaded && (
         <Switch>
           <Route exact path='/'>
@@ -65,7 +72,7 @@ if (sessionUser){
           </Route>
         </Switch>
       )}
-      <div>
+      <div className={'BottomIntro'}>
         <Introduction />
         <Services />
         <Footer />

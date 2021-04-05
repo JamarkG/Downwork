@@ -26,15 +26,16 @@ function ClassList(){
         // e.preventDefault();
         // const thisClass = e.target.value
         // setChosenClass(oneClass);
-        console.log('oneClass on 29 is: ', oneClass);
+        // console.log('oneClass on 29 is: ', oneClass);
         // console.log(userId);
 
         const payload = {
             oneClass
         };
 
-        let createdClass = dispatch(createBoughtClass(payload));
-        if (createdClass) {
+        let CreatedBoughtClass = dispatch(createBoughtClass(payload));
+        // console.log('YO YOU THIS IS THE CBC', CreatedBoughtClass)
+        if (CreatedBoughtClass) {
             history.push(`/`);
         };
     }
@@ -42,7 +43,7 @@ function ClassList(){
     // function handleChange(){}
 
     const allClasses = useSelector(state => Object.values(state.classes))
-    console.log(allClasses[0]);
+    // console.log(allClasses[0]);
 
     return (
         <>
