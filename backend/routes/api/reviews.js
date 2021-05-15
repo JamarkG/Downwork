@@ -5,33 +5,25 @@ const { requireAuth } = require('../../utils/auth');
 const { Class, boughtClass, Review } = require('../../db/models');
 // const user = require('../../db/models/user');
 
+// router.get('/', requireAuth, asyncHandler( async (req, res, next) => {
+//     // const userId = req.user.dataValues.id;
+//     const boughtClassList = await boughtClass.findAll({
+//         where: { userId }
+//     });
+//     // console.log('THIS IS 14 ON REVIEW API--',boughtClassList)
+//     const reviewList = await Review.findAll({
+//         where: { reviewedId: userId }
+//     });
+//     return res.json({reviewList});
+// }));
+
 router.get('/', requireAuth, asyncHandler( async (req, res, next) => {
-    const userId = req.user.dataValues.id;
-    const boughtClassList = await boughtClass.findAll({
-        where: { userId }
-    });
-    console.log('THIS IS 14 ON REVIEW API--',boughtClassList)
-    const reviewList = await Review.findAll({
-        where: { reviewedId: userId }
-    });
-    return res.json({reviewList});
-}));
 
-router.get('/:id', requireAuth, asyncHandler( async (req, res, next) => {
-    const classId = req.params.id;
-    console.log('shit!:', classId);
-    // console.log('CLASSES API LINE 18')
-
-    const reviewList = await Review.findAll({
-        where: {
-            classId: classId },
-    })
-
-    console.log('THIS IS THE REVIEW LIST $$...', reviewList);
+    const reviewList = await Review.findAll()
 
     return res.json({reviewList})
 }));
- 
+
 router.post('/', requireAuth, asyncHandler( async (req, res, next) => {
     // const userId = req.user.dataValues.id;
     // const { review, oneClass } = req.body;
