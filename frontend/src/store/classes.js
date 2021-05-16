@@ -20,22 +20,25 @@ const addBoughtClass = classId => ({
 });
 
 export const getBoughtClasses = () => async dispatch => {
-  const response = await csrfFetch(`/api/classes/bought`);
-  console.log(response)
+  const response = await csrfFetch(`/api/classes/bought`, {
+    method: 'GET',
+    headers: {"Content-Type": 'application/json'}
+  });
+  // console.log(response)
 
   if (response.ok) {
     const UsersBoughtClasses = await response.json();
-    console.log('this is BCL on 28:', UsersBoughtClasses)
+    // console.log('this is BCL on 28:', UsersBoughtClasses)
     dispatch(load(UsersBoughtClasses));
-    return UsersBoughtClasses;
+    // return UsersBoughtClasses;
   }
 };
 
-export const createBoughtClass = ({oneClass}) => async () => {
+export const createBoughtClass = (oneClass, userId) => async () => {
   // console.log('oneClass on 41 is:', oneClass)
   const expertId = oneClass.userId;
   const classId = oneClass.id
-  const userId = 1;
+  // const userId = 1;
   // FIX THIS ^^^
 
   const response = await csrfFetch(`/api/classes/bought`, {
@@ -66,12 +69,12 @@ export const getClasses = () => async dispatch => {
 };
 
 export const getSearchedClasses = ({searchQuery}) => async dispatch => {
-  console.log('THIS IS THE SEARCH QUERY', searchQuery)
-  searchedString = searchQuery.searchQ;
+  // console.log('THIS IS THE SEARCH QUERY', searchQuery)
+  let searchedString = searchQuery.searchQ;
 
 
   const response = await csrfFetch(`/api/classes/${searchedString}`);
-  console.log('THIS IS THE RESPONSE FROM THE SEARCH QUERY', response)
+  // console.log('THIS IS THE RESPONSE FROM THE SEARCH QUERY', response)
 
   if (response.ok) {
     const {classList} = await response.json();
@@ -104,59 +107,6 @@ export const createOneClass = (oneClass) => async dispatch => {
     return createdClass;
   }
 }
-
-// export const getReviews = (classId) => async dispatch => {
-//   console.log(classId)
-//   const response = await csrfFetch(`/api/reviews/${classId}`);
-
-//   if (response.ok) {
-//     const {reviewList} = await response.json();
-//     console.log('RESPONSE ON 98 OF STORE=-=-', reviewList)
-//     // console.log(classList)
-//     dispatch(load(reviewList));
-//     return reviewList;
-//   }
-// };
-
-// export const createOneReview = (reviewFull) => async dispatch => {
-
-//   const response = await csrfFetch('/api/reviews', {
-//     method: 'POST',
-//     headers: {"Content-Type": 'application/json'},
-//     body: JSON.stringify(reviewFull)
-//   });
-//   console.log('THIS IS THE RESPONSE ON 112 OF STORE CREATE1REVIEW', response)
-
-//   if (response.ok) {
-//     const createdClass = await response.json();
-//     console.log(`CREATED REVIEW HERE:,`, createdClass);
-//     // dispatch(addOneClass(createdClass));
-//     return createdClass;
-//   }
-// }
-
-// export const editOnePokemon = (id, pokemon) => async dispatch => {
-//   const response = await fetch(`/api/pokemon/${id}`, {
-//     method: 'PUT',
-//     headers: { "Content-Type": 'application/json' },
-//     body: JSON.stringify(pokemon)
-//   });
-
-//   if (response.ok) {
-//     const editedPokemon = await response.json();
-//     dispatch(addOnePokemon(editedPokemon));
-//     return editedPokemon;
-//   }
-// }
-
-// export const getPokemonTypes = () => async dispatch => {
-//   const response = await fetch(`/api/pokemon/types`);
-
-//   if (response.ok) {
-//     const types = await response.json();
-//     dispatch(loadTypes(types));
-//   }
-// };
 
 const initialState = {
   list: [],

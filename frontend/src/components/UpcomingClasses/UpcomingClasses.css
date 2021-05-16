@@ -1,17 +1,35 @@
 
 .UpcomingClassesDiv {
     color: black;
-    border-top: .5px solid rgb(224, 224, 224);
-    border-bottom: .5px solid rgb(224, 224, 224);
-
+    border: .5px solid rgb(224, 224, 224);
+    border-radius: 7px;
+    /* box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 1px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3); */
     width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    background: white;
 }
 
 .UpcomingClass {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* max-width: 300px; */
+    overflow: scroll;
+    border: .5px solid rgb(219, 219, 219);
+    border-radius: 7px;
+    margin: 8px;
+    /* box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 1px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3); */
 
 }
 
 .h3Div {
+    color: black;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -20,6 +38,38 @@
 
 .MyUpClasses {
     /* background-color: rgb(231, 231, 231); */
+    color: black;
     width: fit-content;
     margin: 10px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ReviewUnList {
+    color: black;
+    font-weight: 420;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 0px 10px 0px;
+}
+
+.CreateReviewForm {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
 }

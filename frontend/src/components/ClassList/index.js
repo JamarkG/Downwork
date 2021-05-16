@@ -1,11 +1,10 @@
-import { getClasses } from '../../store/classes';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from "react";
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { createBoughtClass } from '../../store/classes';
-
+import { getClasses } from '../../store/classes';
 import './ClassList.css'
 
 
@@ -14,36 +13,22 @@ function ClassList(){
     const dispatch = useDispatch();
     const history = useHistory();
 
-    // const userId = useSelector((state) => {
-    //         return state.session.user.id;
-    // });
+    const userId = useSelector((state) => state.session.user.id);
 
     useEffect(() => {
-    dispatch(getClasses())
+        dispatch(getClasses())
     }, [dispatch])
 
     function handleClick (oneClass){
-        // e.preventDefault();
-        // const thisClass = e.target.value
-        // setChosenClass(oneClass);
-        // console.log('oneClass on 29 is: ', oneClass);
-        // console.log(userId);
 
-        const payload = {
-            oneClass
-        };
-
-        let CreatedBoughtClass = dispatch(createBoughtClass(payload));
-        // console.log('YO YOU THIS IS THE CBC', CreatedBoughtClass)
+        let CreatedBoughtClass = dispatch(createBoughtClass(oneClass, userId));
         if (CreatedBoughtClass) {
             history.push(`/`);
         };
     }
 
-    // function handleChange(){}
-
     const allClasses = useSelector(state => Object.values(state.classes))
-    // console.log(allClasses[0]);
+    console.log("HERE ARE ALL THE CLASSES", allClasses)
 
     return (
         <>

@@ -22,9 +22,10 @@ import './App.css'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-  }, [dispatch]);
+  }, []);
 
   const sessionUser = useSelector(state => state.session.user);
 
@@ -35,11 +36,13 @@ if (sessionUser){
       {isLoaded && (
         <Switch>
           <Route exact path='/classes/:searchQ'>
-            <ClassList props={searchQ} />
+            <ClassList />
           </Route>
           <Route exact path='/'>
-            <UserProfile />
-            <FindButton />
+            <div id="homePage">
+              <UserProfile />
+              <FindButton />
+            </div>
           </Route>
           <Route exact path='/classes'>
             <ClassList />

@@ -30,8 +30,8 @@
 
 .FindButtonTitleText {
   color: black;
-  font-weight: 600;
-  font-size: 18.7px;
+  font-weight: 520;
+  font-size: 16.7px;
 }
 
 .FindButtonTopDiv {
@@ -39,6 +39,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 50%;
+  max-width: 50%;
+  margin: 10px;
 }
 
 .FindButtonMediumDiv {

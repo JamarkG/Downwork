@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 
 function UserProfile(){
     const sessionUser = useSelector(state => state.session.user);
-    // console.log(sessionUser)
 
     if(!sessionUser){
         return null

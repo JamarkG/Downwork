@@ -1,4 +1,13 @@
 
+#homePage {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    background: rgba(245, 245, 245, 0.747);
+    /* background-color: black; */
+}
+
 .BottomIntro {
     display: flex;
     flex-direction: column;
@@ -18,4 +27,8 @@
     background-color: aliceblue;
     border-radius: 10px;
     margin: 10px 0px 0px 0px;
+}
+
+.body {
+    margin: 0px;
 }

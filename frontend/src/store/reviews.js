@@ -6,7 +6,7 @@ const ADD_ONE = 'review/ADD_ONE';
 
 const load = list => ({
   type: LOAD,
-  list,
+  list
 });
 
 const addoneReview = oneReview => ({
@@ -14,13 +14,13 @@ const addoneReview = oneReview => ({
   oneReview,
 });
 
-export const getReviews = (classId) => async dispatch => {
-  console.log(classId)
-  const response = await csrfFetch(`/api/reviews/${classId}`);
+export const getReviews = () => async dispatch => {
+  // console.log(classId)
+  const response = await csrfFetch(`/api/reviews/`);
 
   if (response.ok) {
     const {reviewList} = await response.json();
-    console.log('RESPONSE ON 23 OF STORE=-=-', reviewList)
+    // console.log('RESPONSE ON 23 OF STORE=-=-', reviewList)
     // console.log(reviewList1)
     dispatch(load(reviewList));
     return reviewList;
@@ -28,9 +28,9 @@ export const getReviews = (classId) => async dispatch => {
 };
 
 export const createOneReview = ({reviewFull}) => async dispatch => {
-  console.log('THIS IS THE RESPONSE ON 31 OF STORE CREATE1REVIEW', reviewFull)
+  // console.log('THIS IS THE RESPONSE ON 31 OF STORE CREATE1REVIEW', reviewFull)
 
-  const response = await csrfFetch('/api/reviews', {
+  const response = await csrfFetch('/api/reviews/', {
     method: 'POST',
     headers: {"Content-Type": 'application/json'},
     body: JSON.stringify(reviewFull)
@@ -38,9 +38,9 @@ export const createOneReview = ({reviewFull}) => async dispatch => {
 
   if (response.ok) {
     const createdClass = await response.json();
-    console.log(`CREATED REVIEW HERE:,`, createdClass);
+    // console.log(`CREATED REVIEW HERE:,`, createdClass);
     // dispatch(addoneReview(createdClass));
-    return createdClass;
+    return dispatch(addoneReview(createdClass));
   }
 }
 
@@ -61,12 +61,6 @@ const reviewsReducer = (state = initialState, action) => {
         list: action.list,
       };
     }
-    // case BOUGHT_CLASS:{
-    //   console.log('action list on 147!!', action.list)
-    //   return {
-    //   ...state,
-    //   list: action.list,
-    // }}
     case ADD_ONE: {
       if (!state[action.oneReview.id]) {
         const newState = {
