@@ -1,27 +1,29 @@
 import './SearchBar.css'
 import { useDispatch } from 'react-redux';
 import { useState } from "react";
+// import { useHistory } from 'react-router-dom';
 import { getSearchedClasses } from '../../store/classes';
 
 
 function SearchBar() {
     const dispatch = useDispatch();
     const [searchQ, setSearchQ] = useState('');
+    // let history = useHistory();
 
     const changeSearchQ = (e) => setSearchQ(e.target.value)
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = () => {
+        // e.preventDefault();
 
-        const searchQuery = {
-          searchQ
-        };
+        // const searchQuery = {
+        //   searchQ
+        // };
 
-        let SearchedClasses = await dispatch(getSearchedClasses({searchQuery}));
-        // if (createdClass) {
-        //   history.push(`/classes`);
-        // //   hideForm();
-        // }
+        dispatch(getSearchedClasses(searchQ));
+
+        // history.push("/classes");
+        //   hideForm();
+
 
         setSearchQ('');
     };

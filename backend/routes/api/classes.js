@@ -16,8 +16,8 @@ router.get('/', requireAuth, asyncHandler( async (req, res, next) => {
 
 router.get('/bought', requireAuth, asyncHandler( async (req, res, next) => {
     const userId = req.user.dataValues.id
-    console.log('shit!:', userId);
-    console.log('CLASSES API LINE 18')
+    // console.log('shit!:', userId);
+    // console.log('CLASSES API LINE 18')
 
 
     const BoughtClassList = await BoughtClass.findAll({
@@ -25,7 +25,7 @@ router.get('/bought', requireAuth, asyncHandler( async (req, res, next) => {
             userId: userId
     },
     })
-    console.log('CONSOLE LOG ON 33 IN CLASSES STORE..', BoughtClassList)
+    // console.log('CONSOLE LOG ON 33 IN CLASSES STORE..', BoughtClassList)
 
     const classIdArray = BoughtClassList.map((oneBoughtClass)=> {
         return oneBoughtClass.classId
@@ -40,7 +40,7 @@ router.get('/bought', requireAuth, asyncHandler( async (req, res, next) => {
     })
 
     const UsersBoughtClasses = ClassList.map((boughtClass) => {
-        console.log('THIS IS ON 58==', boughtClass)
+        // console.log('THIS IS ON 58==', boughtClass)
         return {
           expertId: boughtClass.userId,
           classId: boughtClass.id,
@@ -55,25 +55,26 @@ router.get('/bought', requireAuth, asyncHandler( async (req, res, next) => {
     return res.json(UsersBoughtClasses)
 }));
 
-router.get('/searchQuery', requireAuth, asyncHandler( async (req, res, next) => {
-    console.log(req.query)
-    const classList = await Class.findAll({
-        where: { [Op.or]: {
-            title:
-            {[Op.or]: {
-                [Op.iLike]: `%${searchTerm}%`,
-                [Op.substring]: searchTerm,
-            }},
-            description : {
-                [Op.or]: {
-                    [Op.iLike]: `%${searchTerm}%`,
-                    [Op.substring]: searchTerm,
-                }
-            }
-        }}
-    })
-    return res.json({classList})
-}))
+// router.get('/:searchQ', requireAuth, asyncHandler( async (req, res, next) => {
+//     console.log(req)
+//     searchTerm=req.query
+//     const classList = await Class.findAll({
+//         where: { [Op.or]: {
+//             title:
+//             {[Op.or]: {
+//                 [Op.iLike]: `%${searchTerm}%`,
+//                 [Op.substring]: searchTerm,
+//             }},
+//             description : {
+//                 [Op.or]: {
+//                     [Op.iLike]: `%${searchTerm}%`,
+//                     [Op.substring]: searchTerm,
+//                 }
+//             }
+//         }}
+//     })
+//     return res.json({classList})
+// }))
 
 
 
