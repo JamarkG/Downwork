@@ -1,0 +1,62 @@
+#classForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: #1d4354;
+    width: fit-content;
+    padding: 8px 12px 8px 12px;
+    margin: 12px 0px 12px 0px;
+    /* width: 80%; */
+}
+
+.classInput {
+    width: 200px;
+    margin: 0px 0px 10px 0px;
+    border-radius: 5px;
+    height: 18px;
+}
+
+#classFormHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* width: fit-content; */
+    /* border: 1px solid gray; */
+}
+
+#createClassTitle {
+    /* color: black; */
+}
+
+#submitNewClass {
+    background-color: #38ac3c;
+    border: none;
+    box-shadow: none;
+    margin: 5px 0px 5px 0px;
+    color: white;
+    height: 28px;
+    width: 140px;
+    border-radius: 32px;
+}
+
+#cancelClass {
+    background-color: white;
+    border: 1px solid #38ac3c;
+    box-shadow: none;
+    margin: 5px 0px 5px 0px;
+    color: #38ac3c;
+    height: 28px;
+    width: 140px;
+    border-radius: 32px;
+}
+
+#description {
+    width: 200px;
+    height: 70px;
+    margin: 0px 0px 10px 0px;
+    border-radius: 5px;
+}

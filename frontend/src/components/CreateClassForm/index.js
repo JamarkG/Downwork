@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createOneClass } from '../../store/classes';
 import { useHistory } from 'react-router-dom';
+import './CreateClassForm.css'
 
 const CreateClassForm = () => {
   const dispatch = useDispatch();
@@ -53,7 +54,9 @@ const CreateClassForm = () => {
   };
 
   return (
-      <form onSubmit={handleSubmit}>
+    <div id='classFormHolder'>
+      <form onSubmit={handleSubmit} id="classForm">
+        <h3 id="createClassTitle">Create a Class</h3>
         <input
           type="text"
           placeholder="Title"
@@ -61,7 +64,8 @@ const CreateClassForm = () => {
           max="50"
           required
           value={title}
-          onChange={updateTitle} />
+          onChange={updateTitle}
+          className="classInput" />
         <input
           type="text"
           placeholder="Description"
@@ -69,33 +73,39 @@ const CreateClassForm = () => {
           max="300"
           required
           value={body}
-          onChange={updateBody} />
+          onChange={updateBody}
+          id='description' />
         <input
           type="hidden"
           value={userId} />
         <input
           type="integer"
-          placeholder="Required Time"
+          placeholder="Required Time (minutes)"
           value={requiredTime}
-          onChange={updateRequiredTime} />
+          onChange={updateRequiredTime}
+          className="classInput" />
         <input
           type="text"
           placeholder="Available times"
           value={availableTimes}
-          onChange={updateAvailableTimes} />
+          onChange={updateAvailableTimes}
+          className="classInput" />
         <input
           type="integer"
           placeholder="Price in $"
           value={price}
-          onChange={updatePrice} />
+          onChange={updatePrice}
+          className="classInput" />
         <input
           type="text"
           placeholder="Video Link"
           value={videoLink}
-          onChange={updateVideoLink} />
-        <button type="submit">Create New Class</button>
-        <button type="button" onClick={handleCancelClick}>Cancel</button>
+          onChange={updateVideoLink}
+          className="classInput" />
+        <button type="submit" id='submitNewClass'>Create New Class</button>
+        <button type="button" id="cancelClass" onClick={handleCancelClick}>Cancel</button>
       </form>
+    </div>
   );
 };
 
