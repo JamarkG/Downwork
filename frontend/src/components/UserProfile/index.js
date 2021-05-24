@@ -13,8 +13,8 @@ function UserProfile(){
         <div className='UserProfileDiv'>
             <div className='UserProfile'>
                 <p className='ProfileInfo'>{`${sessionUser.fullName}'s Profile`}</p>
-                <p className='ProfileInfo'>{sessionUser.emailAddress}</p>
-                <p>{sessionUser.Biography}</p>
+                {/* <p className='ProfileInfo'>{sessionUser.emailAddress}</p> */}
+                {/* <p>{sessionUser.Biography}</p> */}
             </div>
             <div>
                 <UpcomingClasses />

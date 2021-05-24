@@ -4,7 +4,7 @@
 }
 
 .profile-dropdown {
-    height: 80px;
+    height: 150px;
     width: 250px;
     position: absolute;
     right: 10px;
@@ -12,6 +12,14 @@
     box-shadow: 0 0 10px 3px rgb(196, 196, 196);
     color: black;
     border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.profileInfo {
+    margin: 0px 0px 15px 4px;
 }
 
 #ProfileButton {
