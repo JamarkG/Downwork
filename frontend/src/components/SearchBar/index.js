@@ -40,7 +40,7 @@ function SearchBar() {
                     id="header-search"
                     placeholder="Search"
                 />
-                <button type="submit">Search</button>
+                {/* <button type="submit" id='searchSubmit'>Go</button> */}
             </form>
         </div>
     )
