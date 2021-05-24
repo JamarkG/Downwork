@@ -18,6 +18,7 @@ function UpcomingClasses(){
 
     const sessionUser = useSelector(state => state.session.user);
     const BoughtClassList = useSelector(state => state.classes.list);
+    console.log("Bought Class List Right Here:", BoughtClassList)
     const allReviews = useSelector(state => state.reviews.list)
 
     const reviewerId = sessionUser.id
@@ -44,10 +45,9 @@ function UpcomingClasses(){
     };
 
 
-
     return (
         <Collapsible trigger="See My Bought Classes" triggerWhenOpen="Hide My Bought Classes" className='UpcomingClassesDiv' openedClassName='UpcomingClassesDiv'>
-            {BoughtClassList?.map((oneClass, index) => (
+            {BoughtClassList.map((oneClass, index) => (
                 <div className='UpcomingClass' key={`${index}.3`}>
                     <p className='Label'>{`${oneClass.title}`}</p>
                     <p className='Info'>{`$${oneClass.price} - ${oneClass.requiredTime} minutes - ${oneClass.availableTimes}`}</p>

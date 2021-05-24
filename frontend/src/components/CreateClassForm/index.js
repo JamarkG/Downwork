@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { getPokemonTypes, createOnePokemon } from '../store/pokemon';
 import { createOneClass } from '../../store/classes';
 import { useHistory } from 'react-router-dom';
 
 const CreateClassForm = () => {
-//   const pokeTypes = useSelector(state => state.pokemon.types);
   const dispatch = useDispatch();
   const history = useHistory();
-//   const [no, setNo] = useState(1);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 //   const [userId, setUserId] = useState('');
@@ -17,7 +14,6 @@ const CreateClassForm = () => {
   const [availableTimes, setAvailableTimes] = useState('');
   const [videoLink, setVideoLink] = useState('');
 
-//   const updateNo = (e) => setNo(e.target.value);
   const updateTitle = (e) => setTitle(e.target.value);
   const updateBody = (e) => setBody(e.target.value);
 //   const updateUserId = (e) => setUserId(e.target.value);
@@ -28,15 +24,8 @@ const CreateClassForm = () => {
   const sessionUser = useSelector(state => state.session.user);
   const userId = sessionUser.id
 
-//   useEffect(() => {
-//     dispatch(getPokemonTypes());
-//   }, [dispatch]);
+  console.log("7887878787878787877878")
 
-//   useEffect(() => {
-//     if (pokeTypes.length && !type) {
-//       setType(pokeTypes[0]);
-//     }
-//   }, [pokeTypes, type]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

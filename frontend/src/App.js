@@ -27,7 +27,7 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, []);
 
-  const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector(state => state?.session?.user);
 
 if (sessionUser){
   return (
@@ -35,6 +35,9 @@ if (sessionUser){
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path='/classes/createclass'>
+            <CreateClassForm />
+          </Route>
           <Route exact path='/classes/:searchQ'>
             <ClassList />
           </Route>
@@ -46,9 +49,6 @@ if (sessionUser){
           </Route>
           <Route exact path='/classes'>
             <ClassList />
-          </Route>
-          <Route path='/classes/createclass'>
-            <CreateClassForm />
           </Route>
         </Switch>
       )}

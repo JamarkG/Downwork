@@ -1,14 +1,14 @@
 import './SearchBar.css'
 import { useDispatch } from 'react-redux';
 import { useState } from "react";
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { getSearchedClasses } from '../../store/classes';
 
 
 function SearchBar() {
     const dispatch = useDispatch();
     const [searchQ, setSearchQ] = useState('');
-    // let history = useHistory();
+    let history = useHistory();
 
     const changeSearchQ = (e) => setSearchQ(e.target.value)
 
@@ -21,7 +21,7 @@ function SearchBar() {
 
         dispatch(getSearchedClasses(searchQ));
 
-        // history.push("/classes");
+        history.push(`/classes/${searchQ}`);
         //   hideForm();
 
 
@@ -31,7 +31,7 @@ function SearchBar() {
 
     return (
         <div className='SearchBarDiv'>
-            <form action="/search" method="get" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <input
                     className='SearchBar'
                     type="text"
@@ -39,7 +39,6 @@ function SearchBar() {
                     onChange={changeSearchQ}
                     id="header-search"
                     placeholder="Search"
-                    name="searchBar"
                 />
                 <button type="submit">Search</button>
             </form>

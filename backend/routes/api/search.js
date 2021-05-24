@@ -14,7 +14,7 @@ router.get(
     asyncHandler(async (req, res, next) => {
         // const { searchTerm } = useParams();
         const searchTerm = req.params.searchTerm;
-        console.log("THIS IS THE SEARCH TERM", searchTerm)
+        // console.log("THIS IS THE SEARCH TERM", searchTerm)
 
 
         const users = await User.findAll({

@@ -69,16 +69,16 @@ export const getClasses = () => async dispatch => {
 };
 
 export const getSearchedClasses = (searchQ) => async dispatch => {
-  console.log('THIS IS THE SEARCH QUERY', searchQ)
+  // console.log('THIS IS THE SEARCH QUERY', searchQ)
   // let searchedString = searchQuery.searchQ;
 
 
   const response = await csrfFetch(`/api/search/${searchQ}`);
-  console.log('THIS IS THE RESPONSE FROM THE SEARCH QUERY', response)
+  // console.log('THIS IS THE RESPONSE FROM THE SEARCH QUERY', response)
 
   if (response.ok) {
     const classList = await response.json();
-    // console.log(classList)
+    console.log(classList)
     dispatch(load(classList));
     return classList;
   }
