@@ -74,6 +74,7 @@ const CreateClassForm = () => {
           required
           value={body}
           onChange={updateBody}
+          className="classInput"
           id='description' />
         <input
           type="hidden"

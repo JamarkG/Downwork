@@ -42,7 +42,7 @@ function Footer (){
                 <div className={'ListDiv'}>
                     <p className={'ListTitle'}>COMPANY</p>
                     <ul className={'UnList'}>
-                        <li className={'ListItem'}>About Us</li>
+                        <li className={'ListItem'}><a href="https://youtu.be/dQw4w9WgXcQ" id="aboutUs">About Us</a></li>
                         <li className={'ListItem'}>Leadership</li>
                         <li className={'ListItem'}>Investor Relations</li>
                         <li className={'ListItem'}>Careers</li>

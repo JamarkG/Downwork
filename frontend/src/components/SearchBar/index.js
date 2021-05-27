@@ -38,7 +38,7 @@ function SearchBar() {
                     value={searchQ}
                     onChange={changeSearchQ}
                     id="header-search"
-                    placeholder="Search"
+                    placeholder="Search classes"
                 />
                 {/* <button type="submit" id='searchSubmit'>Go</button> */}
             </form>

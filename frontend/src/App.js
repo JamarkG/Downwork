@@ -5,8 +5,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import Introduction from "./components/Introduction";
-import Services from "./components/Services";
+// import Services from "./components/Services";
 import Body from "./components/Body";
 import FindButton from "./components/FindButton";
 import UserProfile from "./components/UserProfile";
@@ -59,9 +58,9 @@ if (sessionUser){
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      <div className={'PleaseLoginDiv'}>
+      {/* <div className={'PleaseLoginDiv'}>
         <h1 className={'PleaseLogin'}>Please Sign-up or Login</h1>
-      </div>
+      </div> */}
       {isLoaded && (
         <Switch>
           <Route exact path='/'>
@@ -76,8 +75,7 @@ if (sessionUser){
         </Switch>
       )}
       <div className={'BottomIntro'}>
-        <Introduction />
-        <Services />
+        {/* <Services /> */}
         <Footer />
       </div>
     </>

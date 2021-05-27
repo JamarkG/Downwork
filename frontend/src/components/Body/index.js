@@ -2,13 +2,14 @@ import FindButton from "../FindButton";
 import TrustedBy from '../TrustedBy'
 import Images from '../Images'
 import HomeDiv2 from '../HomeDiv2'
+import Introduction from "../Introduction";
 import './Body.css'
 
 function Body(){
 
 
     return (
-        <>
+        <div id="bodyHolder">
             <div className='TopHomeDiv'>
                 <div>
                     <p id='MainTitle'>Join the world's work marketplace</p>
@@ -18,10 +19,11 @@ function Body(){
                 </div>
                 <Images />
             </div>
-                <div>
-                    <HomeDiv2 />
-                </div>
-        </>
+            <div>
+                <HomeDiv2 />
+            </div>
+            <Introduction />
+        </div>
     )
 }
 

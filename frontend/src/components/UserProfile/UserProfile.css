@@ -5,6 +5,7 @@
     flex-direction: column;
     width: 50%;
     max-width: 50%;
+    margin: 14px 0px 0px 15px;
 }
 
 .UserProfile {
