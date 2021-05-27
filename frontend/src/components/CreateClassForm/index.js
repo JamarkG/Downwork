@@ -25,7 +25,7 @@ const CreateClassForm = () => {
   const sessionUser = useSelector(state => state.session.user);
   const userId = sessionUser.id
 
-  console.log("7887878787878787877878")
+  // console.log("7887878787878787877878")
 
 
   const handleSubmit = async (e) => {

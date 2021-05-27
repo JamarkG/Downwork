@@ -18,7 +18,7 @@ function UpcomingClasses(){
 
     const sessionUser = useSelector(state => state.session.user);
     const BoughtClassList = useSelector(state => state.classes.list);
-    console.log("Bought Class List Right Here:", BoughtClassList)
+    // console.log("Bought Class List Right Here:", BoughtClassList)
     const allReviews = useSelector(state => state.reviews.list)
 
     const reviewerId = sessionUser.id

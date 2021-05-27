@@ -78,7 +78,7 @@ export const getSearchedClasses = (searchQ) => async dispatch => {
 
   if (response.ok) {
     const classList = await response.json();
-    console.log(classList)
+    // console.log(classList)
     dispatch(load(classList));
     return classList;
   }
@@ -102,7 +102,7 @@ export const createOneClass = (oneClass) => async dispatch => {
 
   if (response.ok) {
     const createdClass = await response.json();
-    console.log(`create one class thunk ${createdClass}`);
+    // console.log(`create one class thunk ${createdClass}`);
     dispatch(addOneClass(createdClass));
     return createdClass;
   }
@@ -122,7 +122,7 @@ const sortList = (list) => {
 const classesReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD: {
-        console.log('action list on 157!!', action.list)
+        // console.log('action list on 157!!', action.list)
       // const allClasses = {};
       // action.list.forEach(oneClass => {
       //   allClasses[oneClass.id] = oneClass;
@@ -140,7 +140,7 @@ const classesReducer = (state = initialState, action) => {
     //   };
     // }
     case BOUGHT_CLASS:{
-      console.log('action list on 147!!', action.list)
+      // console.log('action list on 147!!', action.list)
       return {
       ...state,
       list: action.list,
