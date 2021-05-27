@@ -1,8 +1,11 @@
 .HomeDiv2 {
     background-image: url(https://www.upwork.com/static/assets/Brontes/6ea7164/img/find-talent-mobile.350b96e.jpg);
     background-size: cover;
+    border-radius: 10px;
+    border: none;
     min-height: 200px;
     max-height: 650px;
+    width: 80%;
     min-width: 750px;
     max-width: 1150px;
     margin-left: 50px;
@@ -32,6 +35,7 @@
 
 .HoldsGuyPhotoDiv {
     display: flex;
+    width: 100%;
 }
 
 

@@ -46,7 +46,7 @@ function UpcomingClasses(){
 
 
     return (
-        <Collapsible trigger="See My Bought Classes" triggerWhenOpen="Hide My Bought Classes" className='UpcomingClassesDiv' openedClassName='UpcomingClassesDiv'>
+        <Collapsible trigger="View My Bought Classes" triggerWhenOpen="Hide My Bought Classes" className='UpcomingClassesDiv' openedClassName='UpcomingClassesDiv'>
             {BoughtClassList.map((oneClass, index) => (
                 <div className='UpcomingClass' key={`${index}.3`}>
                     <p className='Label'>{`${oneClass.title}`}</p>

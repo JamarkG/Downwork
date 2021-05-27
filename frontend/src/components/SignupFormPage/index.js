@@ -30,56 +30,54 @@ function SignupFormPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div id="signupFormHolder">
+      <h2 id="getFreeAccount">Get your free account</h2>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
-      <label>
-        Email
+      <form onSubmit={handleSubmit} id="signupForm">
         <input
-          type="text"
+          type="email"
           value={emailAddress}
+          className={"signupInput"}
           onChange={(e) => setEmailAddress(e.target.value)}
+          placeholder={'Email Address'}
           required
         />
-      </label>
-      <label>
-        Full Name
         <input
           type="text"
           value={fullName}
+          className={"signupInput"}
           onChange={(e) => setFullName(e.target.value)}
+          placeholder={'Full Name'}
           required
         />
-      </label>
-      <label>
-        Password
         <input
           type="password"
           value={password}
+          className={"signupInput"}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder={'Password'}
           required
         />
-      </label>
-      <label>
-        Confirm Password
         <input
           type="password"
           value={confirmPassword}
+          className={"signupInput"}
           onChange={(e) => setConfirmPassword(e.target.value)}
+          placeholder={'Confirm Password'}
           required
         />
-      </label>
-      <label>
-        Biography
         <textarea value={biography}
-            onChange={(e) => setBiography(e.target.value)}
-            required
-            placeholder={'Write your biography here.'}>
+          className={"signupInput"}
+          id={"bioInput"}
+          onChange={(e) => setBiography(e.target.value)}
+          required
+          placeholder={'Write your biography here.'}>
         </textarea>
-      </label>
-      <button type="submit">Sign Up</button>
-    </form>
+        <button type="submit" id={"signupSubmit"}>Sign Up</button>
+      </form>
+    </div>
   );
 }
 

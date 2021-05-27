@@ -16,9 +16,7 @@ function UserProfile(){
                 {/* <p className='ProfileInfo'>{sessionUser.emailAddress}</p> */}
                 {/* <p>{sessionUser.Biography}</p> */}
             </div>
-            <div>
-                <UpcomingClasses />
-            </div>
+            <UpcomingClasses />
         </div>
     )
 }

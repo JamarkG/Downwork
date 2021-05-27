@@ -1,11 +1,53 @@
 body {
-  background-color: lightblue;
-  position: relative;
+  /* background-color: lightblue; */
+  /* position: relative;
   display: flex;
   width: fit-content;
   height: fit-content;
   color: white;
   border: none;
-  border-radius: 5px;
-  background-color: red;
-  }
+  border-radius: 5px; */
+  /* background-color: red; */
+}
+
+#signupFormHolder {
+  margin: 20px 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#signupForm {
+  /* color: black; */
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signupInput {
+  margin: 0 0 10px 0;
+  padding: 5px;
+  border: .5px solid rgb(211, 210, 210);
+  border-radius: 10px;
+}
+
+#bioInput {
+  min-height: 70px;
+}
+
+#signupSubmit {
+  color: white;
+  background-color: #38ac3c;
+  border: none;
+  padding: 8px 20px 8px 20px;
+  border-radius: 32px;
+}
+
+#getFreeAccount {
+  color: black;
+}
