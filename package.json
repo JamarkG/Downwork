@@ -1,7 +1,7 @@
 {
-  "name": "authenticate-me",
+  "name": "Downwork",
   "version": "1.0.0",
-  "description": "",
+  "description": "Clone-lite of Upwork, with a spin.",
   "main": "index.js",
   "scripts": {
     "heroku-postbuild": "npm run build --prefix frontend",
@@ -14,13 +14,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JamarkG/Upwork-Clone-Solo-Project.git"
+    "url": "git+https://github.com/JamarkG/Downwork.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JamarkG/Upwork-Clone-Solo-Project/issues"
+    "url": "https://github.com/JamarkG/Downwork/issues"
   },
-  "homepage": "https://github.com/JamarkG/Upwork-Clone-Solo-Project#readme"
+  "homepage": "https://github.com/JamarkG/Downwork#readme"
 }
