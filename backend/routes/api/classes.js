@@ -81,7 +81,7 @@ router.get('/bought', requireAuth, asyncHandler( async (req, res, next) => {
 router.post('/bought', requireAuth, asyncHandler( async (req, res, next) => {
     const { expertId, classId, userId } = req.body;
     // const { expertId, classId } = req.body;
-    console.log('THIS IS EXPERTID CLASS IF USERID', expertId, classId, userId)
+    // console.log('THIS IS EXPERTID CLASS IF USERID', expertId, classId, userId)
 
     const CreatedBoughtClass = await BoughtClass.create({ userId, expertId, classId })
 

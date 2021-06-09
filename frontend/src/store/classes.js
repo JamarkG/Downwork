@@ -102,7 +102,7 @@ export const createOneClass = (oneClass) => async dispatch => {
 
   if (response.ok) {
     const createdClass = await response.json();
-    // console.log(`create one class thunk ${createdClass}`);
+    console.log(`create one class thunk ${createdClass}`);
     dispatch(addOneClass(createdClass));
     return createdClass;
   }
