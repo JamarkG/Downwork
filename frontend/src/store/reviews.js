@@ -54,7 +54,7 @@ const initialState = {
 const reviewsReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD: {
-        console.log('action list on 157!!', action.list)
+        // console.log('action list on 157!!', action.list)
 
       return {
         ...state,

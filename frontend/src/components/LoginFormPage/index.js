@@ -13,18 +13,27 @@ function LoginFormPage() {
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return (
-    <Redirect to="/" />
-    // history.push('/')
+    // <Redirect to="/" />
+
+    history.push('/')
   );
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password }))
+    dispatch(sessionActions.login({ credential, password }))
+
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
+    history.push('/')
+  }
+
+  const demoLogin = () => {
+    setCredential('demo@user.io')
+    setPassword('password')
+    dispatch(sessionActions.login({ credential, password }))
   }
 
 
@@ -52,6 +61,7 @@ function LoginFormPage() {
             required
           />
         <button type="submit" id="loginSubmit">Log In</button>
+        <button id='demoLogin' onClick={demoLogin}>Login with Demo</button>
       </form>
     </div>
   );

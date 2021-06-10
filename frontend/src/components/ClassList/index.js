@@ -40,7 +40,7 @@ function ClassList(){
         })
     }
 
-
+    // console.log(allClasses)
 
     return (
     <>
