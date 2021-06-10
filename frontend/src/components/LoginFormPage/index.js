@@ -30,6 +30,12 @@ function LoginFormPage() {
     history.push('/')
   }
 
+  const demoLogin = () => {
+    setCredential('demo@user.io')
+    setPassword('password')
+    dispatch(sessionActions.login({ credential, password }))
+  }
+
 
   return (
     <div id="formHolder">
@@ -55,6 +61,7 @@ function LoginFormPage() {
             required
           />
         <button type="submit" id="loginSubmit">Log In</button>
+        <button id='demoLogin' onClick={demoLogin}>Login with Demo</button>
       </form>
     </div>
   );

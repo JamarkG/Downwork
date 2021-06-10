@@ -103,7 +103,7 @@ export const createOneClass = (oneClass) => async dispatch => {
   if (response.ok) {
     const createdClass = await response.json();
     console.log(`create one class thunk ${createdClass}`);
-    dispatch(addOneClass(createdClass));
+    // dispatch(addOneClass(createdClass));
     return createdClass;
   }
 }
@@ -146,23 +146,23 @@ const classesReducer = (state = initialState, action) => {
       list: action.list,
     }}
     case ADD_ONE: {
-      if (!state[action.oneClass.id]) {
+      // if (!state[action.oneClass.id]) {
         const newState = {
           ...state,
-          [action.oneClass.id]: action.oneClass
+          list: state.list.concat({[action.oneClass.id]: action.oneClass})
         };
-        const classList = newState.list.map(id => newState[id]);
-        classList.push(action.oneClass);
-        newState.list = classList;
+        // const classList = newState.list.map(id => newState[id]);
+        // classList.push(action.oneClass);
+        // newState.list = classList;
         return newState;
-      }
-      return {
-        ...state,
-        [action.oneClass.id]: {
-          ...state[action.oneClass.id],
-          ...action.oneClass,
-        }
-      };
+      // }
+      // return {
+      //   ...state,
+      //   [action.oneClass.id]: {
+      //     ...state[action.oneClass.id],
+      //     ...action.oneClass,
+      //   }
+      // };
     }
     // case LOAD_CLASSES: {
     //   return {

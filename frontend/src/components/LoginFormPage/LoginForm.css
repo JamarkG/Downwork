@@ -32,3 +32,13 @@
     padding: 8px 20px 8px 20px;
     border-radius: 32px;
 }
+
+#demoLogin {
+    border: none;
+    color: #38ac3c;
+    border: 1px solid #38ac3c;
+    background-color: white;
+    margin: 10px 0 0 0;
+    padding: 8px 20px 8px 20px;
+    border-radius: 32px;
+}

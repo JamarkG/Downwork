@@ -1,11 +1,18 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './FindButton.css'
 
 function FindButton(){
     const history = useHistory();
 
+    const userId = useSelector((state) => state?.session?.user?.id);
+
     const handleClick = (e) => {
+        if (!userId){
+            history.push('/login')
+            return
+        }
         if (e.target.name === 'createclass'){
             history.push('/classes/createclass')
         } else {

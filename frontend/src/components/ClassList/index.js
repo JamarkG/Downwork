@@ -30,7 +30,7 @@ function ClassList(){
     }
 
     let allClasses = useSelector(state => state.classes.list)
-    // console.log("HERE ARE ALL THE CLASSES", allClasses)
+    console.log("HERE ARE ALL THE CLASSES", allClasses)
 
     let searchedClasses
     if(searchQ){

@@ -1,5 +1,5 @@
 import './SearchBar.css'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { getSearchedClasses } from '../../store/classes';
@@ -10,6 +10,8 @@ function SearchBar() {
     const [searchQ, setSearchQ] = useState('');
     let history = useHistory();
 
+    const userId = useSelector((state) => state?.session?.user?.id);
+
     const changeSearchQ = (e) => setSearchQ(e.target.value)
 
     const handleSubmit = () => {
@@ -18,6 +20,11 @@ function SearchBar() {
         // const searchQuery = {
         //   searchQ
         // };
+
+        if (!userId){
+            history.push('/login')
+            return
+        }
 
         dispatch(getSearchedClasses(searchQ));
 
