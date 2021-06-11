@@ -14,32 +14,27 @@ const addOneClass = oneClass => ({
   oneClass,
 });
 
-const addBoughtClass = classId => ({
-  type: BOUGHT_CLASS,
-  classId,
-});
+// const addBoughtClass = classId => ({
+//   type: BOUGHT_CLASS,
+//   classId,
+// });
 
 export const getBoughtClasses = () => async dispatch => {
   const response = await csrfFetch(`/api/classes/bought`, {
     method: 'GET',
     headers: {"Content-Type": 'application/json'}
   });
-  // console.log(response)
 
   if (response.ok) {
     const UsersBoughtClasses = await response.json();
-    // console.log('this is BCL on 28:', UsersBoughtClasses)
     dispatch(load(UsersBoughtClasses));
     // return UsersBoughtClasses;
   }
 };
 
 export const createBoughtClass = (oneClass, userId) => async () => {
-  // console.log('oneClass on 41 is:', oneClass)
   const expertId = oneClass.userId;
   const classId = oneClass.id
-  // const userId = 1;
-  // FIX THIS ^^^
 
   const response = await csrfFetch(`/api/classes/bought`, {
     method: 'POST',
@@ -48,7 +43,6 @@ export const createBoughtClass = (oneClass, userId) => async () => {
   });
 
   if (response.ok) {
-    // expect classId
     const CreatedBoughtClass = await response.json();
     // dispatch(addBoughtClass(classId));
 
@@ -58,27 +52,21 @@ export const createBoughtClass = (oneClass, userId) => async () => {
 
 export const getClasses = () => async dispatch => {
   const response = await csrfFetch(`/api/classes`);
-//   console.log(response)
 
   if (response.ok) {
     const {classList} = await response.json();
-    // console.log(classList)
     dispatch(load(classList));
     return classList;
   }
 };
 
 export const getSearchedClasses = (searchQ) => async dispatch => {
-  // console.log('THIS IS THE SEARCH QUERY', searchQ)
   // let searchedString = searchQuery.searchQ;
 
-
   const response = await csrfFetch(`/api/search/${searchQ}`);
-  // console.log('THIS IS THE RESPONSE FROM THE SEARCH QUERY', response)
 
   if (response.ok) {
     const classList = await response.json();
-    // console.log(classList)
     dispatch(load(classList));
     return classList;
   }
@@ -102,7 +90,6 @@ export const createOneClass = (oneClass) => async dispatch => {
 
   if (response.ok) {
     const createdClass = await response.json();
-    // console.log(`create one class thunk ${createdClass}`);
     // dispatch(addOneClass(createdClass));
     return createdClass;
   }
@@ -113,47 +100,33 @@ const initialState = {
   types: []
 };
 
-const sortList = (list) => {
-  return list.sort((classA, classB) => {
-    return classA.userId - classB.userId;
-  }).map((oneClass) => oneClass.userId);
-};
+// const sortList = (list) => {
+//   return list.sort((classA, classB) => {
+//     return classA.userId - classB.userId;
+//   }).map((oneClass) => oneClass.userId);
+// };
 
 const classesReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD: {
-        // console.log('action list on 157!!', action.list)
-      // const allClasses = {};
-      // action.list.forEach(oneClass => {
-      //   allClasses[oneClass.id] = oneClass;
-      // });
+
       return {
-        // ...allClasses,
         ...state,
         list: action.list,
       };
     }
-    // case LOAD_TYPES: {
-    //   return {
-    //     ...state,
-    //     types: action.types,
-    //   };
-    // }
+
     case BOUGHT_CLASS:{
-      // console.log('action list on 147!!', action.list)
       return {
       ...state,
       list: action.list,
     }}
     case ADD_ONE: {
-      // if (!state[action.oneClass.id]) {
         const newState = {
           ...state,
           list: state.list.concat({[action.oneClass.id]: action.oneClass})
         };
-        // const classList = newState.list.map(id => newState[id]);
-        // classList.push(action.oneClass);
-        // newState.list = classList;
+
         return newState;
       // }
       // return {
@@ -185,7 +158,6 @@ const classesReducer = (state = initialState, action) => {
     //   };
     // }
     // case ADD_CLASS: {
-    //   console.log(action.oneClass);
     //   return {
     //     ...state,
     //     [action.oneClass.classId]: {

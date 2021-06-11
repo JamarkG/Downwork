@@ -1,9 +1,9 @@
 
 
 #MainTitle {
-    font-size: 70px;
+    font-size: 60px;
     color: #14a800;
-    margin: 0 0 30px;
+    margin: 0 0 0 0;
 }
 
 #SecondaryTitle {
@@ -17,12 +17,21 @@
 .TopHomeDiv {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80%
 }
 
 #bodyHolder {
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 0 10px 0 10px;
 }
+
+#bodyTopDiv {
+    width: 100%;
+}
+

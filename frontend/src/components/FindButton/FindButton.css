@@ -39,15 +39,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50%;
-  max-width: 50%;
-  margin: 10px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 14px 0 0 15px;
 }
 
 .FindButtonMediumDiv {
-
+  width: 100%;
 }
 
 .FindButtonSmallDiv {
   margin-bottom: 15px;
+  width: 100%;
 }

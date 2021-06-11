@@ -3,9 +3,19 @@ import './Introduction.css'
 function Introduction(){
 
   return (
-    <div className={'IntroDivTop'}>
-        <h2>The world’s work marketplace</h2>
-        <p className={'IntroText'}>Engage the largest network of trusted independent professionals to unlock the full potential of your business.</p>
+    <div id="greenBlocks">
+      <div className={'greenBlock'}>
+          <h3>Post a class and get customers</h3>
+          <p className={'IntroText'}>Teacher Marketplace ➡</p>
+      </div>
+      <div className={'greenBlock'}>
+          <h3>Browse and buy your favorite classes</h3>
+          <p className={'IntroText'}>Class Catalog ➡</p>
+      </div>
+      <div className={'greenBlock'}>
+          <h3>Let us help you find the right teacher</h3>
+          <p className={'IntroText'}>Talent Scout ➡</p>
+      </div>
     </div>
 
   )

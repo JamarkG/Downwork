@@ -13,7 +13,7 @@
     background: white;
 }
 
-.UpcomingClassesDiv:hover {
+.ReviewUnList:hover {
     cursor: pointer;
 }
 
@@ -25,9 +25,10 @@
     justify-content: center;
     /* max-width: 300px; */
     overflow: scroll;
-    border: .5px solid rgb(219, 219, 219);
+    /* border: .5px solid rgb(219, 219, 219); */
     border-radius: 7px;
     margin: 8px;
+    width: 100%;
     /* box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 1px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3); */
 
 }
@@ -62,6 +63,41 @@
     padding: 0px 0px 10px 0px;
 }
 
+.ReviewDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.oneReview {
+    border: .5px solid #38ac3c;
+    border-radius: 12px;
+    padding: 0 10px 0 10px;
+    max-width: 80%;
+    min-width: 80%;
+    width: fit-content;
+    /* overflow: wrap; */
+    /* max-width: 60%; */
+    /* border-bottom: .5px solid #38ac3c; */
+}
+
+.ReviewTitleText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.ReviewBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+
 .CreateReviewForm {
     color: black;
     display: flex;
@@ -76,4 +112,18 @@
     align-items: center;
     justify-content: center;
     overflow: auto;
+}
+
+#boughtTitle {
+    color: black;
+    font-weight: 520;
+    font-size: 16.7px;
+}
+
+#submitReview {
+    background-color: #38ac3c; /* Green */
+    border: none;
+    border-radius: 38px;
+    color: white;
+    padding: 4px 6px 4px 6px;
 }

@@ -8,8 +8,6 @@
     width: 80%;
     min-width: 750px;
     max-width: 1150px;
-    margin-left: 50px;
-    margin-right: 50px;
     display: flex;
     flex-direction: column;
     /* position: absolute; */
@@ -18,14 +16,15 @@
 }
 
 #HomeDiv2Text {
-    font-size: 72px;
+    font-size: calc(3vw + 3vh);
     width: 440px;
-    margin: 100px 0px 0px 50px;
+    margin: 60px 0px 0px 20px;
 }
 
 #HomeDivSmallText {
     font-size: 20px;
-    width: 290px;
+    width: 40%;
+    margin: 30px 0 20px 20px;
 }
 
 .ForClasses {
@@ -35,12 +34,64 @@
 
 .HoldsGuyPhotoDiv {
     display: flex;
+    flex-direction: column;
     width: 100%;
+    margin: 20px 0 20px 0;
+    justify-content: center;
+    align-items: center;
+
 }
 
 
+#greenBlocks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
 
+.greenBlock {
+    background-color: #14a800;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    /* height: 100%; */
+    max-height: 142px;
+    /* max-width: 700px;
+    margin-top: 10px;
+    margin-bottom: 10px; */
+    border-radius: 10px;
+    /* margin: 0 10px 0 10px; */
+    padding: 5px 10px 5px 10px;
+    border: .5px solid #14a800;
+    /* white-space:nowrap; */
+    text-overflow:ellipsis;
+    overflow: scroll;
+    margin: 0 8px 8px 8px;
+}
 
-/* #FindButton {
-    position: relative;
-} */
+.greenBlock:hover {
+    background-color: white;
+    color: #14a800;
+    cursor: pointer;
+}
+h3 {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: calc(.8vw + .8vh);
+}
+
+.IntroText {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: calc(.7vw + .7vh);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 10px 10px 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}

@@ -1,4 +1,6 @@
 import './Footer.css'
+import linkedIn from '../../images/LinkedInLogo.png'
+import github from '../../images/GithubLogo.png'
 
 function Footer (){
 
@@ -64,6 +66,36 @@ function Footer (){
             </div>
             <div>
                 <span className={'SpanDiv'}>...</span>
+            </div>
+            <div id="devProfile">
+                <h3 id='infoTitle'>
+                    Meet the Developer
+                </h3>
+                <div id="myInfo">
+                    {/* <div id='email' className='infoBox'>
+                        MarkGregory19@Gmail.com
+                    </div> */}
+                    <div id='linkedIn' className='infoBox'>
+                        <a href='https://www.linkedin.com/in/markgregory19' target="_blank" rel="noreferrer">
+                            <img
+                                alt="LinkedIn"
+                                src={linkedIn}
+                                width="70"
+                                height="70"
+                            />
+                            </a>
+                    </div>
+                    <div id='github' className='infoBox'>
+                        <a href='https://github.com/JamarkG' target="_blank" rel="noreferrer">
+                            <img
+                                alt="Github"
+                                src={github}
+                                width="90"
+                                height="50"
+                            />
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
