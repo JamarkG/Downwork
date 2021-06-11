@@ -61,3 +61,8 @@
     margin: 0px 0px 10px 0px;
     border-radius: 5px;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

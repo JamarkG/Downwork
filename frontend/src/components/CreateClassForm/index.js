@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createOneClass } from '../../store/classes';
 import { useHistory } from 'react-router-dom';
@@ -25,8 +25,6 @@ const CreateClassForm = () => {
   const sessionUser = useSelector(state => state.session.user);
   const userId = sessionUser.id
 
-  // console.log("7887878787878787877878")
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,6 +48,7 @@ const CreateClassForm = () => {
 
   const handleCancelClick = (e) => {
     e.preventDefault();
+    history.push(`/`);
     // hideForm();
   };
 
@@ -80,29 +79,33 @@ const CreateClassForm = () => {
           type="hidden"
           value={userId} />
         <input
-          type="integer"
-          placeholder="Required Time (minutes)"
+          type="number"
+          placeholder="Required Time (number)"
           value={requiredTime}
           onChange={updateRequiredTime}
-          className="classInput" />
+          className="classInput"
+          required />
         <input
           type="text"
-          placeholder="Available times"
+          placeholder="Available Times (text)"
           value={availableTimes}
           onChange={updateAvailableTimes}
-          className="classInput" />
+          className="classInput"
+          required />
         <input
-          type="integer"
-          placeholder="Price in $"
+          type="number"
+          placeholder="Price in $ (number)"
           value={price}
           onChange={updatePrice}
-          className="classInput" />
+          className="classInput"
+          required />
         <input
           type="text"
           placeholder="Video Link"
           value={videoLink}
           onChange={updateVideoLink}
-          className="classInput" />
+          className="classInput"
+          required />
         <button type="submit" id='submitNewClass'>Create New Class</button>
         <button type="button" id="cancelClass" onClick={handleCancelClick}>Cancel</button>
       </form>

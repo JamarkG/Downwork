@@ -1,24 +1,48 @@
+#greenBlocks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+}
 
-
-.IntroDivTop {
+.greenBlock {
     background-color: #14a800;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    max-width: 700px;
-    border-radius: 10px;
+    width: 28%;
+    /* height: 100%; */
+    max-height: 142px;
+    /* max-width: 700px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; */
+    border-radius: 10px;
+    /* margin: 0 10px 0 10px; */
+    padding: 5px 10px 5px 10px;
+    border: .5px solid #14a800;
+    /* white-space:nowrap; */
+    text-overflow:ellipsis;
+    overflow: scroll;
+}
+
+.greenBlock:hover {
+    background-color: white;
+    color: #14a800;
+    cursor: pointer;
+}
+h3 {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: calc(1vw + 1vh);
 }
 
 .IntroText {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 22px;
+    font-size: calc(.8vw + .8vh);
     font-weight: 400;
     max-width: 600px;
-    margin: 20px 10px 15px 20px;
+    margin: 10px 10px 10px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -66,3 +66,29 @@
     color: white;
     text-decoration: none;
 }
+
+#devProfile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #38ac3c;
+    color: white;
+}
+
+#infoTitle {
+    margin: 10px 0 5px 0;
+}
+
+#myInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #38ac3c;
+    color: white;
+}
+
+.infoBox {
+    margin: 8px 10px 8px 10px;
+}

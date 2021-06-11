@@ -16,6 +16,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    padding: 6px 6px 6px 6px;
 }
 
 .profileInfo {
@@ -40,6 +41,9 @@
     border: 1px solid #38ac3c;
     border-radius: 38px;
     color: #38ac3c;
-    /* padding: 3px 5px 3px 5px; */
+    padding: 3px 5px 3px 5px;
   }
 
+  #fullName {
+      font-weight: 500;
+  }

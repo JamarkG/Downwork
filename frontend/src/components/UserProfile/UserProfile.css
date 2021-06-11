@@ -5,11 +5,14 @@
     flex-direction: column;
     width: 50%;
     max-width: 50%;
-    margin: 14px 0px 0px 15px;
+    margin: 14px 15px 10px 0px;
 }
 
 .UserProfile {
     color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ProfileInfo {

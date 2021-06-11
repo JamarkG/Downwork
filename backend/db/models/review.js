@@ -32,5 +32,6 @@ module.exports = (sequelize, DataTypes) => {
     Review.belongsTo(models.BoughtClass, { foreignKey: "classId", targetKey: 'classId' });
 
   };
+
   return Review;
 };

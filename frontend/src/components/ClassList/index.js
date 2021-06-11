@@ -1,19 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from "react";
-// import { NavLink } from 'react-router-dom';
 import { useHistory, useParams } from 'react-router-dom';
-// import { useState } from 'react';
 import { createBoughtClass } from '../../store/classes';
 import { getClasses } from '../../store/classes';
 import './ClassList.css'
 
 
 function ClassList(){
-    // const [chosenClass, setChosenClass] = useState({});
     const dispatch = useDispatch();
     const history = useHistory();
     const {searchQ} = useParams();
-
 
     const userId = useSelector((state) => state.session.user.id);
 
@@ -30,7 +26,6 @@ function ClassList(){
     }
 
     let allClasses = useSelector(state => state.classes.list)
-    // console.log("HERE ARE ALL THE CLASSES", allClasses)
 
     let searchedClasses
     if(searchQ){
@@ -40,7 +35,6 @@ function ClassList(){
         })
     }
 
-    // console.log(allClasses)
 
     return (
     <>
@@ -54,8 +48,6 @@ function ClassList(){
                     <p className='Label'>{oneClass.title}</p>
                     <p className='Info'>${oneClass.price} - {oneClass.requiredTime} minutes - {oneClass.availableTimes}</p>
                     <p className='Info'>{oneClass.body}</p>
-                    {/* <input hidden='true' onChange={handleChange} value={oneClass.userId}></input>
-                    <input hidden='true' onChange={handleChange} value={oneClass.classId}></input> */}
                     <button className='BuyButton'
                     onClick={(e)=>{handleClick(oneClass)}}>Buy</button>
                 </div>

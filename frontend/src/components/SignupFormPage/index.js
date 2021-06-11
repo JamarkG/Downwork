@@ -32,9 +32,9 @@ function SignupFormPage() {
   return (
     <div id="signupFormHolder">
       <h2 id="getFreeAccount">Get your free account</h2>
-      <ul>
+      {errors[0] && <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
+      </ul>}
       <form onSubmit={handleSubmit} id="signupForm">
         <input
           type="email"
