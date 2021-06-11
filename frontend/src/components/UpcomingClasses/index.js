@@ -14,8 +14,6 @@ function UpcomingClasses(){
     const sessionUser = useSelector(state => state.session.user);
     const reviewerId = sessionUser.id
     const title = `Review by ${sessionUser.fullName}`
-    const BoughtClassList = useSelector(state => state.classes.list);
-    const allReviews = useSelector(state => state.reviews.list)
 
 
     useEffect(() => {
@@ -27,6 +25,8 @@ function UpcomingClasses(){
         dispatch(getReviews())
     }, [reviews]);
 
+    const BoughtClassList = useSelector(state => state.classes.list);
+    const allReviews = useSelector(state => state.reviews.list)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
