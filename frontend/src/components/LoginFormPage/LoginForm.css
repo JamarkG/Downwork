@@ -16,6 +16,10 @@
     width: 170px;
 }
 
+.errorMess {
+    list-style-type: none;
+}
+
 #formHolder {
     margin: 0 0 20px 0;
     display: flex;

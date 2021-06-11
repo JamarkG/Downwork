@@ -1,4 +1,5 @@
 import { csrfFetch } from './csrf';
+// import { useHistory } from 'react-router-dom';
 
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
@@ -17,12 +18,13 @@ const removeUser = () => {
 };
 
 export const signup = (user) => async (dispatch) => {
-    const { username, email, password, biography } = user;
-    const response = await csrfFetch("/api/users", {
+    const { fullName, emailAddress, password, biography } = user;
+
+    const response = await csrfFetch("http://localhost:5000/api/users", {
       method: "POST",
       body: JSON.stringify({
-        username,
-        email,
+        fullName,
+        emailAddress,
         password,
         biography
       }),
@@ -34,7 +36,9 @@ export const signup = (user) => async (dispatch) => {
 
 export const login = (user) => async (dispatch) => {
   const { credential, password } = user;
-  const response = await csrfFetch('/api/session', {
+  console.log('credential in store', credential)
+  console.log('password in store', password)
+  const response = await csrfFetch('/api/session/', {
     method: 'POST',
     body: JSON.stringify({
       credential,
@@ -42,12 +46,14 @@ export const login = (user) => async (dispatch) => {
     }),
   });
   const data = await response.json();
+  // console.log("this is data", data)
   dispatch(setUser(data.user));
-  return response;
+  // history.push('/')
+  return data;
 };
 
 export const restoreUser = () => async dispatch => {
-    const response = await csrfFetch('/api/session');
+    const response = await csrfFetch('/api/session/');
     const data = await response.json();
     dispatch(setUser(data.user));
     return response;

@@ -18,6 +18,7 @@ function SignupFormPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signup({ emailAddress, fullName, password, biography }))
@@ -32,8 +33,8 @@ function SignupFormPage() {
   return (
     <div id="signupFormHolder">
       <h2 id="getFreeAccount">Get your free account</h2>
-      {errors[0] && <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+      {errors[0] && <ul id="errorUL">
+        {errors.map((error, idx) => <li key={idx} className="errorItem">{error}</li>)}
       </ul>}
       <form onSubmit={handleSubmit} id="signupForm">
         <input

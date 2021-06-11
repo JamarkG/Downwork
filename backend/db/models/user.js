@@ -75,16 +75,19 @@ module.exports = (sequelize, DataTypes) => {
           emailAddress: credential,
       },
     });
+    console.log('user model login', user)
     if (user && user.validatePassword(password)) {
       return await User.scope('currentUser').findByPk(user.id);
     }
   };
 
-  User.signup = async function ({ emailAddress, password }) {
+  User.signup = async function ({ emailAddress, password, fullName, biography }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
-      emailAddress,
-      hashedPassword,
+        fullName,
+        emailAddress,
+        hashedPassword,
+        biography
     });
     return await User.scope('currentUser').findByPk(user.id);
   };

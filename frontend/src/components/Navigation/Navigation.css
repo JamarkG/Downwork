@@ -37,7 +37,13 @@ body {
   text-decoration: none;
   color: white;
   background-color: #38ac3c;
+  border: .5px solid #38ac3c;
   padding: 8px 20px 8px 20px;
   border-radius: 32px;
   margin-right: 30px;
+}
+
+#signupButton:hover {
+  background-color: white;
+  color: #38ac3c;
 }

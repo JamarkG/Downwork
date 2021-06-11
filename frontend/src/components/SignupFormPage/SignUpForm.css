@@ -51,3 +51,12 @@ body {
 #getFreeAccount {
   color: black;
 }
+
+#errorUL {
+  color: black;
+}
+
+.errorItem {
+
+  list-style-type: none;
+}

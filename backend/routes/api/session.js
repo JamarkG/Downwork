@@ -22,7 +22,7 @@ router.post(
       const { credential, password } = req.body;
 
       const user = await User.login({ credential, password });
-
+      // console.log('user here', user)
       if (!user) {
         const err = new Error('Login failed');
         err.status = 401;
@@ -32,7 +32,7 @@ router.post(
       }
 
       await setTokenCookie(res, user);
-      
+
       return res.json({
         user,
       });

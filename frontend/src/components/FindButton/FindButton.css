@@ -9,11 +9,15 @@
 
 #FindButton1 {
   background-color: #38ac3c; /* Green */
-  border: none;
+  border: .5px solid #38ac3c;
   border-radius: 38px;
   color: white;
   margin-right: 15px;
+}
 
+#FindButton1:hover {
+  background-color: white;
+  color: #38ac3c;
 }
 
 #FindButton2 {
@@ -26,6 +30,11 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+#FindButton2:hover {
+  background-color: #38ac3c;
+  color: white;
 }
 
 .FindButtonTitleText {
