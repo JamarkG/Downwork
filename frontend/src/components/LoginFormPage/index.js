@@ -27,13 +27,20 @@ function LoginFormPage() {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-    history.push('/')
+      if(!errors){
+        history.push('/')
+      }
   }
 
   const demoLogin = () => {
-    setCredential('demo@user.io')
-    setPassword('password')
-    dispatch(sessionActions.login({ credential, password }))
+    let credential = 'demo@user.io';
+    let password = 'password';
+
+    // if(credential === 'demo@user.io' && password === 'password'){
+
+    dispatch(sessionActions.login({ credential, password }));
+    // }
+    history.push('/');
   }
 
 
@@ -42,7 +49,7 @@ function LoginFormPage() {
       <h2>Log in to Downwork</h2>
       <form className={'LoginForm1'} onSubmit={handleSubmit}>
         <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          {errors.map((error, idx) => <li key={idx} className="errorMess">{error}</li>)}
         </ul>
           <input
             type="email"
@@ -61,8 +68,8 @@ function LoginFormPage() {
             required
           />
         <button type="submit" id="loginSubmit">Log In</button>
-        <button id='demoLogin' onClick={demoLogin}>Login with Demo</button>
       </form>
+        <button type="button" id='demoLogin' onClick={demoLogin}>Login with Demo</button>
     </div>
   );
 }

@@ -28,7 +28,7 @@ const router = express.Router();
 
 // Sign up
 router.post(
-  '',
+  '/',
   validateSignup,
   asyncHandler(async (req, res) => {
     const { emailAddress, password, fullName, Biography } = req.body;
