@@ -53,6 +53,7 @@ function UpcomingClasses(){
     return (
         <div className='UpcomingClassesDiv'>
             <p id='boughtTitle'>My Bought Classes</p>
+            {!BoughtClassList && <p>You have not bought any classes yet!</p>}
             {BoughtClassList?.map((oneClass, index) => (
                 <div className='UpcomingClass' key={`${index}.3`}>
                     <p className='Label'>{`${oneClass.title}`}</p>
