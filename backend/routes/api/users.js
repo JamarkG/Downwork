@@ -13,7 +13,7 @@ const validateSignup = [
       .exists({ checkFalsy: true })
       .isLength({ min: 4 })
       .withMessage('Please provide a name with at least 4 characters.'),
-    check('biography')
+    check('Biography')
       .exists({ checkFalsy: true })
       .isLength({ min: 4 })
       .withMessage('Biography must be 4 characters or longer.'),
@@ -28,12 +28,12 @@ const router = express.Router();
 
 // Sign up
 router.post(
-  '',
+  '/',
   validateSignup,
   asyncHandler(async (req, res) => {
     console.log("WE MADE IT WOOOO")
-    const { emailAddress, password, fullName, biography } = req.body;
-    const user = await User.signup({ emailAddress, fullName, password, biography });
+    const { emailAddress, password, fullName, Biography } = req.body;
+    const user = await User.signup({ emailAddress, fullName, password, Biography });
 
     await setTokenCookie(res, user);
 

@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignUpForm.css';
 
 function SignupFormPage() {
   const dispatch = useDispatch();
+  let history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const [emailAddress, setEmailAddress] = useState("");
-  const [biography, setBiography] = useState("");
+  const [Biography, setBiography] = useState("");
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -18,10 +19,11 @@ function SignupFormPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ emailAddress, fullName, password, biography }))
+      return dispatch(sessionActions.signup({ emailAddress, fullName, password, Biography }))
+        .then(history.push('/'))
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
@@ -69,7 +71,7 @@ function SignupFormPage() {
           placeholder={'Confirm Password'}
           required
         />
-        <textarea value={biography}
+        <textarea value={Biography}
           className={"signupInput"}
           id={"bioInput"}
           onChange={(e) => setBiography(e.target.value)}
