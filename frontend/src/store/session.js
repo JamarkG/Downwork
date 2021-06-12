@@ -30,15 +30,14 @@ export const signup = (user) => async (dispatch) => {
       }),
     });
     const data = await response.json();
-    console.log(data)
+
     dispatch(setUser(data.user));
     return response;
 };
 
 export const login = (user) => async (dispatch) => {
   const { credential, password } = user;
-  console.log('credential in store', credential)
-  console.log('password in store', password)
+
   const response = await csrfFetch('/api/session/', {
     method: 'POST',
     body: JSON.stringify({
@@ -47,7 +46,7 @@ export const login = (user) => async (dispatch) => {
     }),
   });
   const data = await response.json();
-  // console.log("this is data", data)
+  
   dispatch(setUser(data.user));
   // history.push('/')
   return data;
