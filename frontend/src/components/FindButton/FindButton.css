@@ -1,4 +1,30 @@
 
+.FindButtonTopDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* width: fit-content; */
+  width: 35%;
+  min-width: 30%;
+  margin: 65px 0 0 0;
+  border: .5px solid rgb(224, 224, 224);
+  border-radius: 7px;
+  background-color: white;
+  max-width: 40%;
+}
+
+.FindButtonMediumDiv {
+  width: fit-content;
+  padding: 12px 0 0 0;
+}
+
+.FindButtonSmallDiv {
+  margin-bottom: 15px;
+  width: fit-content;
+  padding: 0 0 12px 0;
+}
+
 .FindButton {
   padding: 10px 22px;
   text-align: center;
@@ -41,23 +67,4 @@
   color: black;
   font-weight: 520;
   font-size: 16.7px;
-}
-
-.FindButtonTopDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  width: 100%;
-  /* margin: 14px 0 0 15px; */
-}
-
-.FindButtonMediumDiv {
-  width: fit-content;
-}
-
-.FindButtonSmallDiv {
-  margin-bottom: 15px;
-  width: fit-content;
 }

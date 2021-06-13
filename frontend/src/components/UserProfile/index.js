@@ -12,7 +12,7 @@ function UserProfile(){
     return (
         <div className='UserProfileDiv'>
             <div className='UserProfile'>
-                <p className='ProfileInfo'>{`${sessionUser.fullName}'s Profile`}</p>
+                <p className='ProfileInfo'>{`Welcome to Downwork, ${sessionUser.fullName}!`}</p>
                 {/* <p className='ProfileInfo'>{sessionUser.emailAddress}</p> */}
                 {/* <p>{sessionUser.Biography}</p> */}
             </div>

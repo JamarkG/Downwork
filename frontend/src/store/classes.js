@@ -32,7 +32,7 @@ export const getBoughtClasses = () => async dispatch => {
   }
 };
 
-export const createBoughtClass = (oneClass, userId) => async () => {
+export const createBoughtClass = (oneClass, userId) => async dispatch => {
   const expertId = oneClass.userId;
   const classId = oneClass.id
 
@@ -44,7 +44,7 @@ export const createBoughtClass = (oneClass, userId) => async () => {
 
   if (response.ok) {
     const CreatedBoughtClass = await response.json();
-    // dispatch(addBoughtClass(classId));
+    dispatch(addOneClass(CreatedBoughtClass));
 
     return CreatedBoughtClass;
   }
@@ -100,11 +100,6 @@ const initialState = {
   types: []
 };
 
-// const sortList = (list) => {
-//   return list.sort((classA, classB) => {
-//     return classA.userId - classB.userId;
-//   }).map((oneClass) => oneClass.userId);
-// };
 
 const classesReducer = (state = initialState, action) => {
   switch (action.type) {
